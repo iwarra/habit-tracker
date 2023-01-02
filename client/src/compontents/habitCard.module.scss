@@ -1,0 +1,50 @@
+.container {
+  min-width: 220px;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: transparent;
+  border-radius: 1rem;
+  background-color: rgba(239, 207, 244, 0.854);
+  padding: .8rem;
+
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  .icon {
+    font-size: 2.5rem;
+  }
+
+  .summary {
+    display: flex;
+    flex-direction: column;
+
+    .freq {
+      font-size: medium;
+      color: gray;
+    }
+  }
+
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 1rem
+}
+
+h1 {
+  margin-block: 1rem;
+}
+
+input {
+  height: 1.5rem;
+  width: 1.5rem;
+}

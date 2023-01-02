@@ -1,0 +1,37 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  border-radius: 1.5rem;
+  padding: 2rem 2rem;
+  background-image: url(colorful-background.jpg);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+
+.heading {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+
+  .arrows {
+    display: flex;
+    gap: 1em;
+  }
+}
+
+.dates {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+
+  .dateBox {
+    background-color: #ebe0e092;
+    padding: .3rem .5rem .8rem .5rem;
+    border: transparent ;
+    border-radius: .5rem;
+  }
+}

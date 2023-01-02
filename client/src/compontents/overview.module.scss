@@ -1,0 +1,23 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  max-width: 960px;
+  width: 100%;
+  gap: .5em;
+  font-size: var(--font-size-text);
+}
+
+.heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  
+  .more {
+    display: inline-block;
+    text-decoration: none;
+    color: rgb(45, 45, 118);
+    font-size: smaller;
+  }
+}

@@ -1,0 +1,11 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-weight: 700;
+  padding-block: .5em;
+  font-size: var(--font-size-h1);
+}
