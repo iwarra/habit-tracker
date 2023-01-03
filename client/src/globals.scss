@@ -16,10 +16,11 @@ h2 {
 }
 
 h3 {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
 
 :root {
+  //Set color scheme
   --clr-primary: ;
   --clr-secondary: ;
   --clr-accent: ;
@@ -28,6 +29,7 @@ h3 {
   --font-size-text: 1.5rem;
   --font-size-h2: 2rem;
 
+  --spacing: 1rem;
 }
 
 #root {
@@ -35,5 +37,6 @@ h3 {
   flex-direction: column;
   min-height: 100vh;
   align-items: center;
-  margin: 1rem;
+  margin: var(--spacing);
+  margin-bottom: unset;
 }

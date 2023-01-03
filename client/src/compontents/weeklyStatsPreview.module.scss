@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1em;
+  
+  .weekly {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgb(181, 179, 179);
+    min-height: 8rem;
+    min-width: 8rem;
+
+    span {
+      font-size: .7em;
+    }
+
+    em {
+      color: #0060df;
+      font-style: normal;
+    }
+  }
+}

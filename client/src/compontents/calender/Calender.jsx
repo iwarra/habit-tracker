@@ -1,27 +1,32 @@
 import style from "./calender.module.scss";
-import { weekDays, getMonth, getDay } from '../../utils/timeUtils.js'
+import { getDate, datesOfCurrentWeek } from '../../utils/timeUtils.js'
 
-const day = getDay() 
-const month = getMonth()
-const date = new Date().getDate()
+const date = getDate()
 
 const Calender = () => {
   return (
           <div className={style.wrapper}>
             <div className={style.heading}>
-              <h2>{`${day}, ${month} ${date}`}</h2> 
+              <h2>{`${date.nameOfDay()}, ${date.month()} ${date.date()}`}</h2> 
               <div className={style.arrows}>
                 <span>&lt;</span>
                 <span>&gt;</span>
               </div>
             </div>
             <ul className={style.dates}> 
-              {weekDays.map(day => {
-                return  <li key={crypto.randomUUID()}>
-                {day.slice(0,1)}
-                <div className={style.dateBox}>D</div>
-              </li>
-            })}
+              {datesOfCurrentWeek().map((week) => {
+                const { date, day, id, today } = week
+                const hightlight = today ? style.active : style.inactive
+
+                return (
+                  <li key={id}>
+                    <span>{day}</span>
+                    <div className={hightlight}>
+                      <span>{date}</span>
+                    </div>
+                  </li>
+                )
+              })}
             </ul>
           </div>
         )

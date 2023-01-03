@@ -1,7 +1,17 @@
 .footer {
   display: flex;
-  width: 100%;
+  width: calc(100vw - var(--spacing));
   justify-content: space-around;
+  align-items: center;
   font-size: var(--font-size-h2);
-  padding-block: .5em
+  padding-block: .5em;
+
+  .icon {
+    cursor: pointer;
+  }
+}
+
+.addIcon {
+  font-size: 1.5em;
+  cursor: pointer;
 }

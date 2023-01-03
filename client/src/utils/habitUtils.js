@@ -1,7 +1,8 @@
+//Needs updating with new properties
 function formatNewItem(newItem) {
   return {
     id: crypto.randomUUID(),
-    habit: newItem,
+    name: newItem,
     checked: false,
   }
 }

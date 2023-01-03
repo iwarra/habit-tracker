@@ -8,7 +8,7 @@
   border-radius: 1rem;
   background-color: rgba(239, 207, 244, 0.854);
   padding: .8rem;
-
+  margin-bottom: 1em;
 }
 
 .main {
@@ -17,7 +17,7 @@
   gap: 2rem;
 
   .icon {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
   }
 
   .summary {
@@ -27,6 +27,7 @@
     .freq {
       font-size: medium;
       color: gray;
+      font-style: normal;
     }
   }
 

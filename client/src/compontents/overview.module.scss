@@ -4,7 +4,6 @@
   flex: 1;
   max-width: 960px;
   width: 100%;
-  gap: .5em;
   font-size: var(--font-size-text);
 }
 
@@ -13,6 +12,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-content: center;
+
   
   .more {
     display: inline-block;
@@ -20,4 +20,8 @@
     color: rgb(45, 45, 118);
     font-size: smaller;
   }
+}
+
+h2, h1 {
+  margin-bottom: 1em;
 }
