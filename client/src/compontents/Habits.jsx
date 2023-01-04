@@ -6,8 +6,7 @@ const Habits = ({ list }) => {
 
   return (
           <ul className={style.ul}>
-            {list.map(item => 
-              <HabitCard key={item.id} item={item} />)}
+            {list.map(item => <HabitCard item={item} key={item.id}/>)}
           </ul>
          )
 };
