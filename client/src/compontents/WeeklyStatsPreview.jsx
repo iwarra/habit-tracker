@@ -1,6 +1,7 @@
 import style from "./weeklyStatsPreview.module.scss"
+import { habits as initialHabits } from '../mongodb/habits.js'
 
-const WeeklyStatsPreview = ( {initialHabits} ) => {
+const WeeklyStatsPreview = () => {
   return (
     <div className={style.container}>
         <h2>This week</h2>

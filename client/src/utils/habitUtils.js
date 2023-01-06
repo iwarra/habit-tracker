@@ -4,6 +4,11 @@ function formatNewItem(newItem) {
     id: crypto.randomUUID(),
     name: newItem,
     checked: false,
+    category: '',
+    color: '',
+    icon: '',
+    repetition: '',
+    monthlyTotal: '',
   }
 }
 

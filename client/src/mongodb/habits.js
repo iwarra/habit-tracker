@@ -18,17 +18,17 @@ const repetition = {
 const categories = {
   health: {
     name: "Health",
-    color: "#8CD2E8",
+    color: "#d6d8f5e4",
     icon: "human"
   },
   hobbies: {
     name: "Hobbies",
-    color: "#f1d6f5",
+    color: "#f0e1fe",
     icon: "pen"
   },
   productivity: {
     name: "Productivity",
-    color: "#FFE584",
+    color: "#F8F1AE",
     icon: "clock"
   },
 }
