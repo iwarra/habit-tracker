@@ -1,10 +1,11 @@
-* Limit the number of habits displayed in overview:
-   - In mobile view
-   - In desktop (set max-width for the whole page)
+Priority:
+"Arrow slide" in Calender to see next/previous week :
+* Fix 'arrow slide' so it understands monthly changes / changeWeek function
+* Change text to week number? 
+
+
 
 * Click a date and get all habits for the day
-
-* If check completed, change state of habit
 
 * "See more"-page design and logic:
    - should a user be able to edit and delete habits here

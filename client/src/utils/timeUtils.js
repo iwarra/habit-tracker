@@ -2,7 +2,7 @@ const weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Frida
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
 //Any use for number of the week?
-/* function getWeek() {
+/* function getWeekNumber() {
   const today = new Date();
   const firstDayOfYear = new Date(today.getFullYear(), 0, 1);
   const pastDaysOfYear = (today - firstDayOfYear) / 86400000;
@@ -56,7 +56,35 @@ function datesOfCurrentWeek() {
     })
 }
 
+function changeWeek(countFrom, option) {
+  //const msInOneDay = 86400000
+  let startingPoint = new Date().setDate(countFrom)
+  //const current = new Date(startingPoint)
+  const current = new Date()
+  console.log('Current: ', current)
+  const msInOneWeek = 604800000
+  let start = 0
+  if (option === 'plus') {start  = startingPoint + msInOneWeek}
+  if (option === 'minus') {start = startingPoint - msInOneWeek} 
+
+  return new Array(7).fill(0)
+  .map((_, index) => { 
+    let next = new Date(start).getDate() + index 
+    console.log('Next: ', next)
+    const date = current.setDate(next)
+    console.log('Date:', new Date(date))
+    return new Date(date).getDate() })
+  .map((item, index) => {
+    return {
+      date: item,
+      day: weekDays[index].slice(0,1),
+      id: weekDays[index],
+    }
+  })
+}
+
 export {
   getDate,
   datesOfCurrentWeek,
+  changeWeek,
 }

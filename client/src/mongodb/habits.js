@@ -31,6 +31,11 @@ const categories = {
     color: "#F8F1AE",
     icon: "clock"
   },
+  none: {
+    name: '',
+    color: '',
+    icon: 'checklist'
+  }
 }
 
 const habits = [
