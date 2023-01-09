@@ -1,27 +1,13 @@
 import { addItem } from "../../utils/localStorage/addItem";
 import { deleteItem } from "../../utils/localStorage/deleteItem";
-import { formatNewItem } from "../../utils/habitUtils";
 
-function Button({onClick}) {
+function Button() {
 
-  function handleAdd(newItem) {
-    onClick((prev => {
-      addItem(prev, newItem)
-      return [...prev, formatNewItem(newItem)]
-    }))
-  }
-
-  function handleDelete(id) {
-    onClick(prev => {
-      deleteItem(id, prev.filter(item => item.id !== id))
-      return prev.filter(item => item.id !== id)
-  })
-  }
 
   return (
     <>
-    <button onClick={() => handleAdd('Drink water')} >Add Habit</button>
-    <button onClick={() => handleDelete('fb78a160-ffec-40c9-a811-9eec23d4e129')}>Delete Habit</button>
+    <button onClick={() => addItem('Drink water')} >Add Habit</button>
+    <button onClick={() => deleteItem('a6310be1-f2a1-4e08-9d60-cc5c7bdf7798')}>Delete Habit</button>
     </>
     )
 }

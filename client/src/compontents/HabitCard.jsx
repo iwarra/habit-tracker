@@ -1,7 +1,6 @@
 import style from './habitCard.module.scss'
 import { getIconsPath } from '../utils/getIconsPath';
 import { updateItem } from '../utils/localStorage/updateItem';
-import { getAllItems } from '../utils/localStorage/getAllItems';
 import { useState } from 'react';
 
 const HabitCard = ({item}) => {
@@ -10,11 +9,8 @@ const HabitCard = ({item}) => {
   const inlineStyle = {backgroundColor: color}
 
   function handleCheck(id) {
-      let updated = getAllItems().map(habit => 
-        habit.id === id ? {...habit, checked: !habit.checked} : habit
-      )
       setCheck((prev) => !prev)
-      updateItem(updated) 
+      updateItem(id) 
     }
 
   return (

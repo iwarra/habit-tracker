@@ -5,6 +5,8 @@ Priority:
 
 
 
+* Weekly stats preview reactivity and utils
+
 * Click a date and get all habits for the day
 
 * "See more"-page design and logic:
