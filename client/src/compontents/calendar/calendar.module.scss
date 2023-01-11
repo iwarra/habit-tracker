@@ -19,9 +19,15 @@
 
   .arrows {
     display: flex;
-    gap: 1em;
+    gap: .9em;
     cursor: pointer;
+    font-size: 1.3em;
   }
+
+  .leftArrow:hover, .rightArrow:hover {
+    font-weight: 700;
+  }
+
 }
 
 .dates {

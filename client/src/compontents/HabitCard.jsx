@@ -1,7 +1,7 @@
 import style from './habitCard.module.scss'
-import { getIconsPath } from '../utils/getIconsPath';
-import { updateItem } from '../utils/localStorage/updateItem';
-import { useState } from 'react';
+import { getIconsPath } from '../utils/getIconsPath.js'
+import { updateItem } from '../utils/localStorage/updateItem.js'
+import { useState } from 'react'
 
 
 const HabitCard = ({item}) => {
@@ -10,9 +10,9 @@ const HabitCard = ({item}) => {
   const inlineStyle = {backgroundColor: color}
 
   function handleCheck(id) {
-      setCheck((prev) => !prev)
-      updateItem(id) 
-    }
+    setCheck((prev) => !prev)
+    updateItem(id)
+  }
 
   return (
           <li className={style.container} style={inlineStyle}>
@@ -24,7 +24,7 @@ const HabitCard = ({item}) => {
               </div>
             </div>
             <div className={style.footer}>
-              <span className={style.count}>0/{monthlyTotal}</span>
+              <span className={style.count}>Nr. of done/{monthlyTotal}</span>
               <input type="checkbox"  
                 onChange={() => handleCheck(item.id)}
                 checked={check}/>

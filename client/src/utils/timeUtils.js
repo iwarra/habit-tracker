@@ -2,43 +2,26 @@ const weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Frida
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 const shortFormat = (date) => new Intl.DateTimeFormat('se-SV', { dateStyle: "short" }).format(date)
 
-//Any use for number of the week?
-/* function getWeekNumber() {
-  const today = new Date();
-  const firstDayOfYear = new Date(today.getFullYear(), 0, 1);
-  const pastDaysOfYear = (today - firstDayOfYear) / 86400000;
-  return Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
-} */
-
-function getDate() {
-
-  function numberOfDay(date) {
-    const current = date ?? new Date()
-    return current.getDay()
-  }
-
-  function nameOfDay(date) {
-    const current = date ?? new Date()
-    return weekDays[current.getDay()]
-  }
-
-  function date(date) {
-    const current = date ?? new Date()
-    return current.getDate()
-  }
-
-  function month(date) {
-    const current = date ?? new Date()
-    return months[current.getMonth()]
-  }
-
-  return {
-    numberOfDay,
-    nameOfDay,
-    date,
-    month,
+const dateObject = {
+  date: '',
+  set setDate(value) {
+    this.date = new Date(value)
+  },
+  get getDate() {
+    if (this.date !== '' || undefined) return this.date.getDate()
+    return (this.date = new Date().getDate())
+  },
+  get nameOfDay() {
+    return weekDays[this.date.getDay()]
+  },
+  get numberOfDay() {
+    return this.date.getDay()
+  },
+  get month() {
+    return months[this.date.getMonth()]
   }
 }
+
 
 function datesOfWeek(date) {
   const current = date ?? new Date()
@@ -69,10 +52,9 @@ function datesOfWeek(date) {
     })
 }
 
-
 export {
-  getDate,
   datesOfWeek,
+  dateObject
 }
 
 

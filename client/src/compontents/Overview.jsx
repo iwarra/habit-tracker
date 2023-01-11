@@ -1,26 +1,20 @@
-import Calendar from './calendar/Calendar';
-import Habits from './Habits';
-import WeeklyStatsPreview from './WeeklyStatsPreview';
-import style from "./overview.module.scss"
-import { useState } from 'react';
-import { habits as defaultHabits } from '../mongodb/habits.js'
-import { getAllItems } from '../utils/localStorage/getAllItems';
+import Calendar from './calendar/Calendar'
+import Habits from './Habits'
+import WeeklyStatsPreview from './WeeklyStatsPreview'
+import style from './overview.module.scss'
+import { useState } from 'react'
+import { getAllItems } from '../utils/localStorage/getAllItems.js'
+import { serveDefault } from "../utils/localStorage/serveDefault.js";
 
-if (!localStorage.getItem('habitList')) {
-  localStorage.setItem('habitList', JSON.stringify([...defaultHabits]))
-}
+// serve default Habits to localStorage
+serveDefault()
 
 const Overview = () => {
-  /* function arrayToShow(id) {
-    return JSON.parse(localStorage.getItem('habitList')).filter(obj => {
-      if (obj.id !== id) return obj
-    })
-  } */
-
   const [habits, setHabits] = useState(getAllItems())
   const name = /* username ?? */ "Guest"
   
-  return (<main className={style.main}>
+  return (
+          <main className={style.main}>
             <Calendar />
             <h1>Hello, {name}</h1>
             <div className={style.habits}>

@@ -1,31 +1,34 @@
 import style from "./weeklyStatsPreview.module.scss"
-import { getAllItems } from '../utils/localStorage/getAllItems'
+import { useState, useEffect } from "react"
+import { getAllItems } from '../utils/localStorage/getAllItems.js'
 
 const WeeklyStatsPreview = () => {
-  const habitsTotal = getAllItems().length
-  // create Stats util
-  function countChecked() {
-    return getAllItems().filter(item => item.checked === true).length
+  const [habitsCount, setHabitsCount] = useState(0)
+  const [habitsCompleted, setHabitsCompleted] = useState(0)
+
+  function countPercentage() {
+    return `${Math.floor((habitsCompleted / habitsCount) * 100)}%`
   }
 
-  function countProgess() {
-    return (countChecked() / habitsTotal) * 100
-  }
-
+  useEffect(() => {
+    setHabitsCount(getAllItems().length)
+    setHabitsCompleted(getAllItems().filter(item => item.checked === true).length)
+  }, [])
+  
   return (
     <div className={style.container}>
         <h2>This week</h2>
         <div className={style.stats}>
           <div className={style.weekly}>
-            <em>{habitsTotal}</em>
+            <em>{habitsCount}</em>
             <span>Habits</span>
           </div>
           <div className={style.weekly}>
-            <em>{countChecked()}</em>
+            <em>{habitsCompleted}</em>
             <span>Completed</span>
           </div>
           <div className={style.weekly}>
-            <em>{countProgess()}%</em>
+            <em>{countPercentage()}</em>
             <span>Progress</span>
           </div>
         </div>
