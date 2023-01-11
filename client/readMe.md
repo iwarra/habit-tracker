@@ -1,9 +1,4 @@
-Priority:
-"Arrow slide" in Calender to see next/previous week :
-* Fix 'arrow slide' so it understands monthly changes / changeWeek function
-* Change text to week number? 
-
-
+* Refactor getDate() func in timeUtils
 
 * Weekly stats preview reactivity and utils
 

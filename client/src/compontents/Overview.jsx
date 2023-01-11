@@ -1,4 +1,4 @@
-import Calender from './calender/Calender';
+import Calendar from './calendar/Calendar';
 import Habits from './Habits';
 import WeeklyStatsPreview from './WeeklyStatsPreview';
 import style from "./overview.module.scss"
@@ -21,7 +21,7 @@ const Overview = () => {
   const name = /* username ?? */ "Guest"
   
   return (<main className={style.main}>
-            <Calender />
+            <Calendar />
             <h1>Hello, {name}</h1>
             <div className={style.habits}>
               <div className={style.heading}>

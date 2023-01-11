@@ -1,5 +1,6 @@
 const weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+const shortFormat = (date) => new Intl.DateTimeFormat('se-SV', { dateStyle: "short" }).format(date)
 
 //Any use for number of the week?
 /* function getWeekNumber() {
@@ -10,21 +11,24 @@ const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 
 } */
 
 function getDate() {
-  const current = new Date()
 
-  function numberOfDay() {
+  function numberOfDay(date) {
+    const current = date ?? new Date()
     return current.getDay()
   }
 
-  function nameOfDay() {
+  function nameOfDay(date) {
+    const current = date ?? new Date()
     return weekDays[current.getDay()]
   }
 
-  function date() {
+  function date(date) {
+    const current = date ?? new Date()
     return current.getDate()
   }
 
-  function month() {
+  function month(date) {
+    const current = date ?? new Date()
     return months[current.getMonth()]
   }
 
@@ -36,55 +40,54 @@ function getDate() {
   }
 }
 
-function datesOfCurrentWeek() {
-  const current = new Date()
+function datesOfWeek(date) {
+  const current = date ?? new Date()
   let startingPoint = new Date().setDate(current.getDate() - current.getDay())
   return new Array(7)
     .fill()
     .map((_, slot) => {
       const nextDate = new Date(startingPoint).getDate() + slot
       const date = current.setDate(nextDate)
-      return new Date(date).getDate()
+      return {
+        date: new Date(date).getDate(),
+        month: new Date(date).getMonth(),
+        year: new Date(date).getFullYear()
+      }
     })
     .map((item, index) => {
+      const { date, month, year } = item
+      const today = shortFormat(new Date())
+      const itemDate = shortFormat(new Date(year, month, date))
+
       return {
-        date: item,
+        date,
+        fullDate: new Date(year, month, date),
         day: weekDays[index].slice(0,1),
         id: weekDays[index],
-        today: new Date().getDate() === item
+        today: today === itemDate
       }
     })
 }
 
-function changeWeek(countFrom, option) {
-  //const msInOneDay = 86400000
-  let startingPoint = new Date().setDate(countFrom)
-  //const current = new Date(startingPoint)
-  const current = new Date()
-  console.log('Current: ', current)
-  const msInOneWeek = 604800000
-  let start = 0
-  if (option === 'plus') {start  = startingPoint + msInOneWeek}
-  if (option === 'minus') {start = startingPoint - msInOneWeek} 
-
-  return new Array(7).fill(0)
-  .map((_, index) => { 
-    let next = new Date(start).getDate() + index 
-    console.log('Next: ', next)
-    const date = current.setDate(next)
-    console.log('Date:', new Date(date))
-    return new Date(date).getDate() })
-  .map((item, index) => {
-    return {
-      date: item,
-      day: weekDays[index].slice(0,1),
-      id: weekDays[index],
-    }
-  })
-}
 
 export {
   getDate,
-  datesOfCurrentWeek,
-  changeWeek,
+  datesOfWeek,
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

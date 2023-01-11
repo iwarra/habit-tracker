@@ -3,6 +3,7 @@ import { getIconsPath } from '../utils/getIconsPath';
 import { updateItem } from '../utils/localStorage/updateItem';
 import { useState } from 'react';
 
+
 const HabitCard = ({item}) => {
   const [check, setCheck] = useState(item.checked)
   const {color, icon, name, repetition, monthlyTotal} = item
