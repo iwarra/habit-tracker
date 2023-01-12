@@ -1,8 +1,12 @@
-import style from "./weeklyStatsPreview.module.scss"
+import style from "./weeklyStats.module.scss"
 import { useState, useEffect } from "react"
-import { getAllItems } from '../utils/localStorage/getAllItems.js'
+import { getAllItems } from "../utils/localStorage/getAllItems.js"
+import { useContext } from "react"
+import StatsContext from "../context/StatsContext"
 
-const WeeklyStatsPreview = () => {
+const WeeklyStats = () => {
+  //const { habitsCount, setHabitsCount, habitsCompleted, setHabitsCompleted} = useContext(StatsContext)
+  
   const [habitsCount, setHabitsCount] = useState(0)
   const [habitsCompleted, setHabitsCompleted] = useState(0)
 
@@ -36,4 +40,4 @@ const WeeklyStatsPreview = () => {
     );
 };
 
-export default WeeklyStatsPreview;
+export default WeeklyStats;

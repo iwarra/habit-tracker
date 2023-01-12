@@ -1,71 +1,75 @@
 const repetition = {
   daily: {
     number: 30,
-    text: 'Every day'
+    text: "Every day"
   },
   weekly: {
     number: 4,
-    text: 'Weekly'
+    text: "Weekly"
   },
   custom: {
-    number: '',
-    repetition: '',
-    text: '',
+    number: "",
+    repetition: "",
+    text: "",
     days: [],
   }
 }
 
-const categories = {
-  health: {
+const categories = [
+   {
     name: "Health",
     color: "#d6d8f5e4",
-    icon: "human"
+    icon: "human",
+    id: crypto.randomUUID(),
   },
-  hobbies: {
+   {
     name: "Hobbies",
     color: "#f0e1fe",
-    icon: "pen"
+    icon: "pen",
+    id: crypto.randomUUID(),
   },
-  productivity: {
+  {
     name: "Productivity",
     color: "#F8F1AE",
-    icon: "clock"
+    icon: "clock",
+    id: crypto.randomUUID(),
   },
-  none: {
-    name: '',
-    color: '',
-    icon: 'checklist'
+  {
+    name: "Uncategorized",
+    color: "#eee",
+    icon: "checklist",
+    id: crypto.randomUUID(),
   }
-}
+]
 
 const habits = [
   {
     id: crypto.randomUUID(),
-    name: 'Study programming',
+    name: "Study programming",
     checked: false,
-    category: categories.productivity.name,
-    color: categories.productivity.color,
-    icon: categories.productivity.icon,
+    category: categories[2].name,
+    color: categories[2].color,
+    icon: categories[2].icon,
     repetition: repetition.daily.text,
     monthlyTotal: repetition.daily.number,
   },
   {
     id: crypto.randomUUID(),
-    name: 'Go to gym',
+    name: "Go to gym",
     checked: false,
-    category: categories.health.name,
-    color: categories.health.color,
-    icon: categories.health.icon,
+    category: categories[0].name,
+    color: categories[0].color,
+    icon: categories[0].icon,
     repetition: repetition.weekly.text,
     monthlyTotal: repetition.weekly.number,
   },
   {
     id: crypto.randomUUID(),
-    name: 'Read books',
+    name: "Read books",
     checked: false,
-    category: categories.hobbies.name,
-    color: categories.hobbies.color,
-    icon: categories.hobbies.icon,
+    category: categories[1].name,
+    color: categories[1].color,
+    icon: categories[1].icon,
     repetition: repetition.daily.text,
     monthlyTotal: repetition.daily.number,
   }
@@ -75,4 +79,5 @@ const habits = [
 
 export {
   habits,
+  categories
 }

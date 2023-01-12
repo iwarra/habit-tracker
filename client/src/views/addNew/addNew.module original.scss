@@ -1,0 +1,92 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  max-width: 940px;
+  width: 100%;
+  font-size: var(--font-size-text);
+
+  header {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    border-radius: 1.5rem;
+    padding: 2rem 2rem;
+    background-image: url(background2.jpg);
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    margin-bottom: 1em;
+  }
+}
+
+.labInp {
+  display: flex;
+  align-items: center;
+  gap: .6em;
+
+  .firstInput {
+    width: 80%;
+    padding-left: .5em;
+    border-bottom: 1px solid white;
+    font-weight: 600;
+  }
+}
+
+
+main {
+  //Temporary solution to see the space available
+  height: 65vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.categoryParent {
+  display: flex;
+  gap: .5em;
+  flex-wrap: wrap;
+
+  .categories {
+    display: flex;
+    gap: .5em;
+    list-style: none;
+    flex-wrap: wrap;
+    //font-weight: 600;
+    
+    li {
+      padding: .4em 1em;
+      border-radius: 10px;
+    }
+  }
+}
+
+.addCategory {
+  display: flex;
+  align-items: center;
+  padding: .4em 1em;
+  border-radius: 15px;
+  background-color: rgb(242, 203, 132);
+  gap: .3em;
+
+  .addBtn {
+    color: rgb(217, 142, 2);
+    font-size: 1.3em;
+  }
+}
+
+
+.btn {
+  width: 80vw;
+  margin: 0 auto;
+  height: 2.5em;
+  background-color: rgba(38, 38, 125, 0.882);
+  color: white;
+  font-size: large;
+  font-weight: 600;
+  border: none;
+  border-radius: 15px;
+  font-size: var(--font-size-text);
+  margin-bottom: 1em;
+}

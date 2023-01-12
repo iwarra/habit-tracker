@@ -3,11 +3,11 @@ import Footer from "../compontents/Footer"
 
 const RootLayout = () => {
   return (
-    <>
-    <Outlet />
-    <Footer />
-    </>
-  )
+          <>
+            <Outlet />
+            <Footer />
+          </>
+         )
 };
 
 export default RootLayout;

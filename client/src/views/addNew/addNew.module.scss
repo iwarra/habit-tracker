@@ -1,0 +1,136 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 85px);
+  font-size: var(--font-size-text);
+/*   background-image: url(background2.jpg);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover; */
+  background-color: rgba(226, 191, 146, 0.745);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  min-width: 80vw;
+  overflow-x: hidden;
+
+  .miniWrapper {
+/*     max-width: 940px; */
+    display: flex;
+    flex-direction: column;
+
+    header {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      color: white;
+      margin-bottom: 2rem;
+      padding: 1.5em;
+    }
+
+    main {
+      //Temporary solution to see the space available
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      border-radius: 30px 30px 0 0;
+      padding-inline: 1.5em;
+      padding-top: 2em;
+    }
+  }
+}
+
+
+.labInp {
+  display: flex;
+  align-items: center;
+  gap: .6em;
+
+  .firstInput {
+    width: 100%;
+    padding-left: .5em;
+    border-bottom: 1px solid white;
+    font-weight: 600;
+  }
+}
+
+.catWrapper {
+
+  h3 {
+    font-weight: 500;
+    font-size: 1.3rem;
+    color: grey;
+    margin-bottom: 1rem;
+  }
+
+  .categoryParent {
+    display: flex;
+    gap: .5em;
+    flex-wrap: wrap;
+  
+    .categories {
+      display: flex;
+      gap: .5em;
+      list-style: none;
+      flex-wrap: wrap;
+      //font-weight: 600;
+      
+      li {
+        padding: .4em 1em;
+        border-radius: 10px;
+      }
+    }
+  }
+}
+
+
+.addCategory {
+  display: flex;
+  align-items: center;
+  padding: .4em 1em;
+  border-radius: 15px;
+  background-color: rgb(242, 203, 132);
+  gap: .3em;
+
+  .addBtn {
+    color: rgb(217, 142, 2);
+    font-size: 1.3em;
+  }
+}
+
+
+.btn {
+  padding: .4em 1em;
+  height: 2.5em;
+  background-color: rgb(38, 38, 125);
+  color: white;
+  font-size: large;
+  font-weight: 600;
+  border: none;
+  border-radius: 15px;
+  font-size: var(--font-size-text);
+  margin-bottom: 1em;
+}
+
+// circles
+
+.circle {
+  --size: 300px;
+  position: absolute;
+  height: var(--size);
+  width: var(--size);
+  border-radius: 50%;
+}
+
+.blue {
+  background-color: rgba(0, 0, 128, 0.664);
+  top: 0 - 100px;
+  right: 0 - 150px;
+}
+
+.pink {
+  background-color: rgba(255, 105, 180, 0.613);
+  top: 0 - 200px;
+  right: 0;
+}
