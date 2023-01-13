@@ -1,23 +1,9 @@
 import style from "./weeklyStats.module.scss"
-import { useState, useEffect } from "react"
-import { getAllItems } from "../utils/localStorage/getAllItems.js"
 import { useContext } from "react"
 import StatsContext from "../context/StatsContext"
 
 const WeeklyStats = () => {
-  //const { habitsCount, setHabitsCount, habitsCompleted, setHabitsCompleted} = useContext(StatsContext)
-  
-  const [habitsCount, setHabitsCount] = useState(0)
-  const [habitsCompleted, setHabitsCompleted] = useState(0)
-
-  function countPercentage() {
-    return `${Math.floor((habitsCompleted / habitsCount) * 100)}%`
-  }
-
-  useEffect(() => {
-    setHabitsCount(getAllItems().length)
-    setHabitsCompleted(getAllItems().filter(item => item.checked === true).length)
-  }, [])
+  const { habitsCount, habitsCompleted, countPercentage } = useContext(StatsContext)
   
   return (
     <div className={style.container}>

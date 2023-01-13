@@ -1,17 +1,20 @@
 import style from './habitCard.module.scss'
 import { getIconsPath } from '../utils/getIconsPath.js'
 import { updateItem } from '../utils/localStorage/updateItem.js'
-import { useState } from 'react'
-
+import { getAllItems } from '../utils/localStorage/getAllItems.js'
+import { useState, useContext } from 'react'
+import StatsContext from '../context/StatsContext'
 
 const HabitCard = ({item}) => {
   const [check, setCheck] = useState(item.checked)
+  const { setHabitsCompleted } = useContext(StatsContext)
   const {color, icon, name, repetition, monthlyTotal} = item
   const inlineStyle = {backgroundColor: color}
 
   function handleCheck(id) {
     setCheck((prev) => !prev)
     updateItem(id)
+    setHabitsCompleted(getAllItems().filter(item => item.checked === true).length)
   }
 
   return (

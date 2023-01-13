@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { getAllItems } from '../utils/localStorage/getAllItems.js'
 import { serveDefault } from '../utils/localStorage/serveDefault.js'
-import StatsProvider from '../context/StatsContext'
 
 // serve default Habits to localStorage
 serveDefault()
@@ -17,7 +16,6 @@ const Overview = () => {
   
   return (
           <main className={style.main}>
-            {/* <StatsProvider> */}
             <Calendar />
             <h1>Hello, {name}</h1>
             <div className={style.habits}>
@@ -28,7 +26,6 @@ const Overview = () => {
               <Habits habits={habits}/>
             </div>
             <WeeklyStats />
-           {/*  </StatsProvider> */}
           </main>
          )
 };

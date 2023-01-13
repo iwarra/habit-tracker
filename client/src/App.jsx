@@ -7,6 +7,7 @@ import {
 import AddNew from "./views/addNew/AddNew"
 import Overview from "./compontents/Overview"
 import RootLayout from "./layouts/RootLayout"
+import { StatsProvider } from "./context/StatsContext"
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -19,7 +20,11 @@ const router = createBrowserRouter(
 )
 
 function App() {
-  return <RouterProvider router={router} />
+  return (
+        <StatsProvider>
+          <RouterProvider router={router} />
+        </StatsProvider> 
+        )
 }
 
 export default App
