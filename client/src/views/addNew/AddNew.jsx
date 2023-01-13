@@ -3,9 +3,20 @@ import { categories } from "../../mongodb/habits"
 import { IoMdAddCircle } from "react-icons/io"
 import style from "./addNew.module.scss"
 import { useRef, useState } from "react"
+import Modal from "./Modal"
+import { createPortal } from "react-dom"
 
 const AddNew = () => {
-  const [newHabit, setNewHabit] = useState()
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [newHabit, setNewHabit] = useState({
+    name: '',
+    checked: '',
+    category: '',
+    color: '',
+    icon: '',
+    repetition: '',
+    monthlyTotal: '',
+  })
   const initial = useRef()
 
   return (
@@ -20,11 +31,16 @@ const AddNew = () => {
             <span className={style.firstInput}
               contentEditable=""
               ref={initial}
-              value={newHabit}
+              value={newHabit.name}
               onInput={() => {setNewHabit(initial.current.innerHTML)}}
             />
           </div>
         </header>
+        {/* <div className={style.modal}>
+          { modal === true ? 
+            <Modal newHabit={newHabit} setNewHabit={setNewHabit} modal={modal} setModal={setModal}/> : null
+          }
+        </div> */}
         <main>
           <span>Color?</span>
           <p>Icon ?</p>
@@ -37,17 +53,19 @@ const AddNew = () => {
                 return <li style={{backgroundColor: item.color}} key={item.id}>{item.name}</li>
               })}
             </ul>
-            <div className={style.addCategory}>
+            <div className={style.addCategory} onClick={() => setIsModalOpen(prev => !prev)}>
               <IoMdAddCircle role="button" className={style.addBtn}/>
               <span>Add category</span>
+              {isModalOpen && createPortal(<Modal newHabit={newHabit} setNewHabit={setNewHabit} />, document.body)}
             </div>
           </div>
           </div>
           <button className={style.btn}
-            onClick={() => {
+            /* onClick={() => {
             addItem(habitInput.current.value)
             habitInput.current.value = ''
-            }}>Create habit</button>
+            }} */
+            >Create habit</button>
         </main>
       </div>
     </div>

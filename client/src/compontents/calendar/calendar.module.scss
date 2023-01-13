@@ -4,18 +4,49 @@
   gap: 1em;
   border-radius: 1.5rem;
   padding: 2rem 2rem;
-  background-image: url(background2.jpg);
-  background-repeat: no-repeat;
-  background-position: bottom;
-  background-size: cover;
+  background-color: var(--clr-primary);
   color: white;
+  margin-bottom: 1rem;
+  position: relative;
+  overflow: hidden;
 }
+
+.circle {
+  border-radius: 100%;
+  position: absolute;
+}
+
+.blue {
+  width: 500px;
+  height: 500px;
+  background-color: rgba(0, 0, 128, 0.678);
+  top: 0;
+  left: -90px;
+}
+
+.red {
+  width: 210px;
+  height: 210px;
+  background-color: rgb(187, 44, 44);
+  right: -10px;
+  bottom: -70px;
+}
+
+.pink {
+  width: 150px;
+  height: 150px;
+  background-color: rgba(255, 105, 180, 0.69);
+  top: 0;
+  right: -50px;
+}
+
 
 .heading {
   display: flex;
   flex-direction: row;
   width: 100%;
   justify-content: space-between;
+  z-index: 1;
 
   .arrows {
     display: flex;
@@ -27,13 +58,13 @@
   .leftArrow:hover, .rightArrow:hover {
     font-weight: 700;
   }
-
 }
 
 .dates {
   display: flex;
   justify-content: space-between;
   list-style: none;
+  z-index: 1;
 
   li {
     display: flex;

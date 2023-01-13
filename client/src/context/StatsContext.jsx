@@ -3,7 +3,7 @@ import { getAllItems } from "../utils/localStorage/getAllItems.js";
 import { serveDefault } from '../utils/localStorage/serveDefault.js'
 
 const StatsContext = createContext({})
-serveDefault()
+//serveDefault()
 
 export const StatsProvider =({ children })=> {
   const [habitsCount, setHabitsCount] = useState(getAllItems().length)

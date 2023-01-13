@@ -18,25 +18,25 @@ const repetition = {
 const categories = [
    {
     name: "Health",
-    color: "#d6d8f5e4",
+    color: "#cce6ff",
     icon: "human",
     id: crypto.randomUUID(),
   },
    {
     name: "Hobbies",
-    color: "#f0e1fe",
+    color: "#ffe6e6",
     icon: "pen",
     id: crypto.randomUUID(),
   },
   {
     name: "Productivity",
-    color: "#F8F1AE",
+    color: "#f3e6ff",
     icon: "clock",
     id: crypto.randomUUID(),
   },
   {
     name: "Uncategorized",
-    color: "#eee",
+    color: "#e9cfad",
     icon: "checklist",
     id: crypto.randomUUID(),
   }

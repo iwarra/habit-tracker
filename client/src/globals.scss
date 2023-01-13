@@ -25,13 +25,13 @@ h3 {
 
 :root {
   //Set color scheme
-  --clr-primary: ;
+  --clr-primary: rgba(226, 191, 146, 0.745);
   --clr-secondary: ;
   --clr-accent: ;
 
   --font-size-h1: 3rem;
   --font-size-text: 1.5rem;
-  --font-size-h2: 2rem;
+  --font-size-h2: 1.7rem;
 
   --spacing: 1rem;
 }
@@ -42,7 +42,7 @@ h3 {
   min-height: 100vh;
   align-items: center;
   //margin: var(--spacing);
-  margin-bottom: unset;
+  //margin-bottom: 0!important;
 }
 
 a:visited {
