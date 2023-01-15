@@ -19,6 +19,11 @@ const AddNew = () => {
   })
   const initial = useRef()
 
+  function handleAddCategory(event) {
+    if (event.target.closest('#modalWrap')) return
+    setIsModalOpen(prev => !prev)
+  }
+
   return (
     <div className={style.wrapper}>
       <div className={`${style.blue} ${style.circle}`}></div>
@@ -36,14 +41,7 @@ const AddNew = () => {
             />
           </div>
         </header>
-        {/* <div className={style.modal}>
-          { modal === true ? 
-            <Modal newHabit={newHabit} setNewHabit={setNewHabit} modal={modal} setModal={setModal}/> : null
-          }
-        </div> */}
         <main>
-          <span>Color?</span>
-          <p>Icon ?</p>
           <p>Repetition</p>
           <div className={style.catWrapper}>
           <h3>Category</h3>
@@ -53,7 +51,7 @@ const AddNew = () => {
                 return <li style={{backgroundColor: item.color}} key={item.id}>{item.name}</li>
               })}
             </ul>
-            <div className={style.addCategory} onClick={() => setIsModalOpen(prev => !prev)}>
+            <div className={style.addCategory} onClick={handleAddCategory}>
               <IoMdAddCircle role="button" className={style.addBtn}/>
               <span>Add category</span>
               {isModalOpen && createPortal(<Modal newHabit={newHabit} setNewHabit={setNewHabit} />, document.body)}

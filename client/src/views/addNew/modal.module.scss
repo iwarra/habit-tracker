@@ -29,11 +29,13 @@
   background-color: rgb(246, 243, 243);
   width: 80vw;
   height: 50vh;
-  border: 10px solid #ff9c33ca;
   border-radius: 25px;
   color: black;
   margin: 0 auto;
-  padding: 1em;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
 
 

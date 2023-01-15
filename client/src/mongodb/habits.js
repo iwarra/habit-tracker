@@ -36,7 +36,7 @@ const categories = [
   },
   {
     name: "Uncategorized",
-    color: "#e9cfad",
+    color: "#eee",
     icon: "checklist",
     id: crypto.randomUUID(),
   }
