@@ -3,7 +3,8 @@ import Habits from './Habits'
 import WeeklyStats from './WeeklyStats'
 import style from './overview.module.scss'
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import FooterContext from '../context/FooterContext'
 import { getAllItems } from '../utils/localStorage/getAllItems.js'
 import { serveDefault } from '../utils/localStorage/serveDefault.js'
 
@@ -11,8 +12,10 @@ import { serveDefault } from '../utils/localStorage/serveDefault.js'
 serveDefault()
 
 const Overview = () => {
-  const [habits, setHabits] = useState(getAllItems())
+  const [habits, setHabits] = useState(getAllItems('habitList'))
   const name = /* username ?? */ "Guest"
+  const { setPage } = useContext(FooterContext)
+  setPage(prev => prev = "home")
   
   return (
           <main className={style.main}>

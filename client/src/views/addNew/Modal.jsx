@@ -1,8 +1,21 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import style from "./modal.module.scss"
+import { categories as defaultCategories} from "../../mongodb/habits.js"
 
-const Modal = ({ newHabit, setNewHabit }) => {
+const Modal = ({ setIsModalOpen }) => {
   const initial = useRef()
+  const newCategory = {
+    name: "",
+    color: "",
+    icon: "",
+    id: crypto.randomUUID(),
+  }
+  console.log(newCategory)
+
+  function addNewCategory(newCat) {
+    const allCategories = JSON.parse(localStorage.getItem('Categories')) || defaultCategories
+    localStorage.setItem('Categories', JSON.stringify([...allCategories, newCat]))
+  }
 
   return (
       <div className={style.modalMain}>
@@ -14,8 +27,11 @@ const Modal = ({ newHabit, setNewHabit }) => {
               <span className={style.catInput}
                       contentEditable=""
                       ref={initial}
-                      value={newHabit.name}
-                      onInput={() => {setNewHabit(initial.current.innerHTML)}}
+                      value={newCategory.name}
+                      onInput={() => {
+                        newCategory.name = initial.current.innerHTML
+                        console.log(newCategory.name)
+                      }}
                     />
             </div>
             <select name="colors" id="cat-colors">
@@ -30,7 +46,13 @@ const Modal = ({ newHabit, setNewHabit }) => {
               <option value="">Pick an icon</option>
               <option value="">Default</option>
             </select>
-            <button >Save and close</button>
+            <button 
+              onClick={() => {
+                addNewCategory(newCategory)
+                setIsModalOpen(prev => prev = !prev)
+                }}>
+                  Save and close
+            </button>
           </div>
         </div>
       </div>
@@ -38,4 +60,4 @@ const Modal = ({ newHabit, setNewHabit }) => {
 };
 
 export default Modal;
-//onClick={() => setModal(prev => prev = !prev)}
+//onClick={() => }

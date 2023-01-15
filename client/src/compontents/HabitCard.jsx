@@ -13,8 +13,8 @@ const HabitCard = ({item}) => {
 
   function handleCheck(id) {
     setCheck((prev) => !prev)
-    updateItem(id)
-    setHabitsCompleted(getAllItems().filter(item => item.checked === true).length)
+    updateItem(id, 'habitList')
+    setHabitsCompleted(getAllItems('habitList').filter(item => item.checked === true).length)
   }
 
   return (
