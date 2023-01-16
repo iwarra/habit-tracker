@@ -3,19 +3,16 @@ import Habits from './Habits'
 import WeeklyStats from './WeeklyStats'
 import style from './overview.module.scss'
 import { Link } from 'react-router-dom'
-import { useState, useContext } from 'react'
-import FooterContext from '../context/FooterContext'
+import { useState } from 'react'
 import { getAllItems } from '../utils/localStorage/getAllItems.js'
 import { serveDefault } from '../utils/localStorage/serveDefault.js'
 
 // serve default Habits to localStorage
-serveDefault()
+serveDefault('habitList')
 
 const Overview = () => {
   const [habits, setHabits] = useState(getAllItems('habitList'))
   const name = /* username ?? */ "Guest"
-  const { setPage } = useContext(FooterContext)
-  setPage(prev => prev = "home")
   
   return (
           <main className={style.main}>

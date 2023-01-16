@@ -1,6 +1,8 @@
-import { useRef, useState } from "react";
 import style from "./modal.module.scss"
+import { useRef } from "react";
 import { categories as defaultCategories} from "../../mongodb/habits.js"
+import { categoryColorOptions, iconOptions } from "../../mongodb/habits.js"
+import { getIconsPath } from '../../utils/getIconsPath.js'
 
 const Modal = ({ setIsModalOpen }) => {
   const initial = useRef()
@@ -10,7 +12,6 @@ const Modal = ({ setIsModalOpen }) => {
     icon: "",
     id: crypto.randomUUID(),
   }
-  console.log(newCategory)
 
   function addNewCategory(newCat) {
     const allCategories = JSON.parse(localStorage.getItem('Categories')) || defaultCategories
@@ -34,25 +35,29 @@ const Modal = ({ setIsModalOpen }) => {
                       }}
                     />
             </div>
-            <select name="colors" id="cat-colors">
-              <option value="">Pick a color</option>
-              <option value="default">Default</option>
-              <option value="blue">Blue</option>
-              <option value="pink">Pink</option>
-              <option value="yellow">Yellow</option>
-              <option value="green">Green</option>
-            </select>  
-            <select name="icons" id="cat-icons">
-              <option value="">Pick an icon</option>
-              <option value="">Default</option>
-            </select>
-            <button 
+            <span>Pick a color:</span>
+            <ul className={style.catColors}>
+              {categoryColorOptions.map(item => {
+                const backgroundColor = {backgroundColor: item.colorCode}
+
+                return (
+                  <li key={item.id} className={style.colorDiv} style={backgroundColor} onClick={() => newCategory.color = item.colorCode}></li>)
+              })}
+            </ul>
+            <span>Pick an icon:</span>
+            <ul className={style.icons}>
+              {iconOptions.map(item => 
+              <img key={item.id} className={style.iconPic} src={getIconsPath(item.icon)} onClick={() => newCategory.icon = item.icon}></img>)}
+            </ul>
+            <button className={style.catBtn}
               onClick={() => {
                 addNewCategory(newCategory)
                 setIsModalOpen(prev => prev = !prev)
                 }}>
                   Save and close
             </button>
+            <div className={`${style.blue} ${style.circle}`}></div>
+            <div className={`${style.pink} ${style.circle}`}></div>
           </div>
         </div>
       </div>

@@ -1,19 +1,35 @@
-const repetition = {
-  daily: {
-    number: 30,
-    text: "Every day"
+import { repetitionCalc } from "../utils/timeUtils"
+
+const repetition = [
+  {
+    name: 'Daily',
+    number: repetitionCalc().daysInMonth,
+    id: crypto.randomUUID(),
   },
-  weekly: {
-    number: 4,
-    text: "Weekly"
+  {
+    name: 'Weekly',
+    number: repetitionCalc().nrOfWeeks,
+    id: crypto.randomUUID(),
   },
-  custom: {
+  {
+    name: 'On weekends',
+    number: repetitionCalc().weekendDaysNr,
+    id: crypto.randomUUID(),
+  },
+  {
+    name: 'On workdays',
+    number: repetitionCalc().workingDays,
+    id: crypto.randomUUID(),
+  },
+ /*  {
+    name: 'Custom',
     number: "",
     repetition: "",
     text: "",
     days: [],
-  }
-}
+    id: crypto.randomUUID(),
+  } */
+]
 
 const categories = [
    {
@@ -42,6 +58,20 @@ const categories = [
   }
 ]
 
+const categoryColorOptions = [
+  {name: 'Pink', colorCode: '#ffcccb', id: 1},
+  {name: 'Blue', colorCode: '#b2e7f6', id: 2},
+  {name: 'Yellow', colorCode: '#f3e627', id: 3},
+  {name: 'Green', colorCode: '#afe6b3', id: 4}
+]
+
+const iconOptions = [
+  {icon: 'checklist', id: 1}, 
+  {icon:'clock', id: 2}, 
+  {icon:'human', id: 3}, 
+  {icon:'pen', id: 4}, 
+  {icon:'test', id: 5}]
+
 const habits = [
   {
     id: crypto.randomUUID(),
@@ -50,8 +80,8 @@ const habits = [
     category: categories[2].name,
     color: categories[2].color,
     icon: categories[2].icon,
-    repetition: repetition.daily.text,
-    monthlyTotal: repetition.daily.number,
+    repetition: repetition[0].name,
+    monthlyTotal: repetition[0].number,
   },
   {
     id: crypto.randomUUID(),
@@ -60,8 +90,8 @@ const habits = [
     category: categories[0].name,
     color: categories[0].color,
     icon: categories[0].icon,
-    repetition: repetition.weekly.text,
-    monthlyTotal: repetition.weekly.number,
+    repetition: repetition[1].name,
+    monthlyTotal: repetition[1].number,
   },
   {
     id: crypto.randomUUID(),
@@ -70,8 +100,8 @@ const habits = [
     category: categories[1].name,
     color: categories[1].color,
     icon: categories[1].icon,
-    repetition: repetition.daily.text,
-    monthlyTotal: repetition.daily.number,
+    repetition: repetition[0].name,
+    monthlyTotal: repetition[0].number,
   }
 ]
 
@@ -79,5 +109,8 @@ const habits = [
 
 export {
   habits,
-  categories
+  categories,
+  categoryColorOptions,
+  iconOptions,
+  repetition
 }

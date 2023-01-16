@@ -1,27 +1,28 @@
-import { useState, createContext } from "react"
-import { IoMdAddCircle, IoMdStats } from "react-icons/io"
-const FooterContext = createContext({})
 import style from "../compontents/footer.module.scss"
+import { createContext } from "react"
+import { IoMdAddCircle } from "react-icons/io"
 import { BsFillArrowDownCircleFill } from "react-icons/bs"
+import { useLocation } from "react-router-dom"
+
+const FooterContext = createContext({})
 
 export const FooterProvider =({ children })=> {
-  const [page, setPage] = useState("home")
+  const location = useLocation();
 
   function setFooterIcon() {
-    if (page === "home") return {
+    if (location.pathname === "/") return {
       link: "/add",
       icon: <IoMdAddCircle className={style.addIcon} role="button" />
     }
-    if (page === "addHabit") return {
+    if (location.pathname === "/add") return {
       link: "/",
       icon: <BsFillArrowDownCircleFill className={style.backIcon} role="button" />
     }
   }
 
-
   return (
     <FooterContext.Provider value={{
-      page, setPage, setFooterIcon
+       setFooterIcon
     }}>
       {children}
     </FooterContext.Provider>

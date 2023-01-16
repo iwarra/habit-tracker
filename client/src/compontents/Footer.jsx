@@ -7,7 +7,6 @@ import { useContext } from "react"
 
 const Footer = () => {
   const { setFooterIcon } = useContext(FooterContext)
-  console.log(setFooterIcon().link)
 
   return (
            <footer className={style.footer}>

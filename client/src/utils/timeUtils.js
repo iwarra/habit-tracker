@@ -1,3 +1,7 @@
+import eachWeekendOfMonth from 'date-fns/eachWeekendOfMonth'
+import getWeeksInMonth from 'date-fns/getWeeksInMonth'
+import getDaysInMonth from 'date-fns/getDaysInMonth'
+
 const weekDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 const shortFormat = (date) => new Intl.DateTimeFormat('se-SV', { dateStyle: "short" }).format(date)
@@ -52,9 +56,29 @@ function datesOfWeek(date) {
     })
 }
 
+// used for setting habit frequency
+function repetitionCalc() {
+  const currentDate = new Date()
+  const month = currentDate.getMonth()
+  const year = currentDate.getFullYear()
+
+  const weekendDaysNr = eachWeekendOfMonth(new Date(year, month)).length
+  const nrOfWeeks = getWeeksInMonth(new Date(year, month))
+  const daysInMonth = getDaysInMonth(new Date(year, month))
+  const workingDays = daysInMonth - weekendDaysNr
+  return {
+    weekendDaysNr,
+    nrOfWeeks,
+    daysInMonth,
+    workingDays
+  }
+}
+
+
 export {
   datesOfWeek,
-  dateObject
+  dateObject, 
+  repetitionCalc
 }
 
 
