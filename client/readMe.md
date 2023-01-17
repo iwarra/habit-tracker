@@ -1,7 +1,7 @@
 * Add habit page:
    - input validation (add event on enter?)
    - delete input text after adding
-   - responsivness like hover etc
+   - responsiveness like hover etc
    - footer styling
 
 

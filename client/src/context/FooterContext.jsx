@@ -21,9 +21,7 @@ export const FooterProvider =({ children })=> {
   }
 
   return (
-    <FooterContext.Provider value={{
-       setFooterIcon
-    }}>
+    <FooterContext.Provider value={{ setFooterIcon }}>
       {children}
     </FooterContext.Provider>
   )

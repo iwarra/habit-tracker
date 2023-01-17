@@ -11,10 +11,16 @@ export const StatsProvider =({ children })=> {
     return `${Math.floor((habitsCompleted / habitsCount) * 100)}%`
   }
 
+  const returnedValue = {
+    habitsCount, 
+    habitsCompleted, 
+    setHabitsCompleted, 
+    setHabitsCount, 
+    countPercentage
+  }
+
   return (
-    <StatsContext.Provider value={{
-      habitsCount, habitsCompleted, setHabitsCompleted, setHabitsCount, countPercentage
-    }}>
+    <StatsContext.Provider value={returnedValue}>
       {children}
     </StatsContext.Provider>
   )

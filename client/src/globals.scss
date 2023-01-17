@@ -29,6 +29,10 @@ h3 {
   --clr-secondary: ;
   --clr-accent: ;
 
+  --clr-circleBlue: rgba(0, 0, 128, 0.664);
+  --clr-circlePink: rgba(255, 105, 180, 0.613);
+  --clr-circleRed: rgb(187, 44, 44);
+
   --font-size-h1: 3rem;
   --font-size-text: 1.5rem;
   --font-size-h2: 1.7rem;
@@ -49,3 +53,4 @@ a:visited {
   color: unset;
 }
 
+//Margin-bottom 1rem ?

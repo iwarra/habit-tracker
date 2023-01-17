@@ -59,18 +59,18 @@ const categories = [
 ]
 
 const categoryColorOptions = [
-  {name: 'Pink', colorCode: '#ffcccb', id: 1},
-  {name: 'Blue', colorCode: '#b2e7f6', id: 2},
-  {name: 'Yellow', colorCode: '#f3e627', id: 3},
-  {name: 'Green', colorCode: '#afe6b3', id: 4}
+  {name: 'Pink', colorCode: '#ffcccb', id: crypto.randomUUID()},
+  {name: 'Blue', colorCode: '#b2e7f6', id: crypto.randomUUID()},
+  {name: 'Yellow', colorCode: '#f3e627', id: crypto.randomUUID()},
+  {name: 'Green', colorCode: '#afe6b3', id: crypto.randomUUID()}
 ]
 
 const iconOptions = [
-  {icon: 'checklist', id: 1}, 
-  {icon:'clock', id: 2}, 
-  {icon:'human', id: 3}, 
-  {icon:'pen', id: 4}, 
-  {icon:'test', id: 5}]
+  {icon: 'checklist', id: crypto.randomUUID()}, 
+  {icon:'clock', id: crypto.randomUUID()}, 
+  {icon:'human', id: crypto.randomUUID()}, 
+  {icon:'pen', id: crypto.randomUUID()}, 
+  {icon:'test', id: crypto.randomUUID()}]
 
 const habits = [
   {

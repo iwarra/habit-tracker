@@ -23,12 +23,11 @@ const AddNew = () => {
     repetition: '',
     monthlyTotal: '',
   })
+ 
   const initial = useRef()
-
   const { setHabitsCount } = useContext(StatsContext)
-
   const storedCategories = getAllItems('Categories') 
-  
+
   function handleAddCategory(event) {
     if (event.target != 'button' && event.target.closest('#modalWrap')) return
     setIsModalOpen(prev => !prev)
@@ -43,6 +42,7 @@ const AddNew = () => {
           <h1>Create New Habit</h1>
           <label htmlFor="newHabit" className={style.labInp}>Add:
             <span className={style.firstInput}
+              id="spanInput"
               contentEditable=""
               ref={initial}
               value={newHabit.name}
@@ -68,7 +68,7 @@ const AddNew = () => {
               </ul>
           </div>
           <div className={style.catWrapper}>
-            <h3>Category</h3>
+            <h2>Category</h2>
             <div className={style.categoryParent}>
               <ul className={style.categories}>
                 {storedCategories.map(item => {
@@ -81,7 +81,7 @@ const AddNew = () => {
                 })}
               </ul>
               <div className={style.addCategory} onClick={handleAddCategory}>
-                <IoMdAddCircle role="button" className={style.addBtn}/>
+                <IoMdAddCircle role="button" className={style.addIcon}/>
                 <span>Add category</span>
                 {isModalOpen && createPortal(<Modal setIsModalOpen={setIsModalOpen} />, document.body)}
               </div>
@@ -91,6 +91,8 @@ const AddNew = () => {
             onClick={() => {
             addItem(newHabit, 'habitList')
             setHabitsCount(prev => prev + 1)
+            document.getElementById('spanInput').focus()
+            document.getElementById('spanInput').value = ''
             // initial.value = '' needs to reset on click
             }}
             >Create habit</button>
