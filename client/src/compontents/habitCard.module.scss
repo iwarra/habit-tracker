@@ -1,13 +1,13 @@
-.container {
+ .container {
   min-width: 220px;
   min-height: 250px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   border-radius: 1rem;
-  background-color: rgba(243, 210, 155, 0.873);
+  // not needed? background-color: rgba(243, 210, 155, 0.873);
   padding: .8rem;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.6em;
 }
 
 .main {
@@ -26,7 +26,7 @@
 
     .freq {
       font-size: medium;
-      color: gray;
+      color: var(--clr-font-light);
       font-style: normal;
     }
   }

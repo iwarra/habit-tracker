@@ -1,4 +1,5 @@
 .main {
+  color: var(--clr-font-main);
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -26,11 +27,18 @@
     margin-bottom: 1rem;
   }
 
-  .more {
+  .seeMoreLink {
     display: inline-block;
     text-decoration: none;
-    color: rgb(45, 45, 118);
+    color: var(--clr-accent);
     font-size: smaller;
+    cursor: pointer;
+    transition: .3s;
+  }
+
+  .seeMoreLink:hover {
+    font-size: x-large;
+    transition: .3s;
   }
 }
 

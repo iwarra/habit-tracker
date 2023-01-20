@@ -1,4 +1,4 @@
-.ul {
+.habits {
   display: flex;
   flex-direction: row;
   gap: 1rem;
@@ -6,20 +6,20 @@
 }
 
 /* Works on Firefox */
-.ul {
+.habits {
   scrollbar-width: thin;
   scrollbar-color: darkgray lightgray;
 }
 
 /* Works on Chrome, Edge, and Safari */
-.ul::-webkit-scrollbar {
+.habits::-webkit-scrollbar {
   height: 0.5rem;
 }
 
-.ul::-webkit-scrollbar-track {
+.habits::-webkit-scrollbar-track {
   background: lightgray;
 }
 
-.ul::-webkit-scrollbar-thumb {
+.habits::-webkit-scrollbar-thumb {
   background-color: darkgray;
 }

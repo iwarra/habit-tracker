@@ -21,7 +21,7 @@ const Overview = () => {
             <div className={style.habits}>
               <div className={style.heading}>
                 <h2>Today</h2>
-                <Link className={style.more} >see more</Link>
+                <Link className={style.seeMoreLink} >see more</Link>
               </div>
               <Habits habits={habits}/>
             </div>

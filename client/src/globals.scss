@@ -27,11 +27,14 @@ h3 {
   //Set color scheme
   --clr-primary: #faf1ed;
   --clr-secondary: ;
-  --clr-accent: ;
+  --clr-accent: rgb(0, 96, 223);
 
   --clr-circleBlue: rgba(0, 0, 128, 0.664);
   --clr-circlePink: rgba(255, 105, 180, 0.613);
   --clr-circleRed: rgb(187, 44, 44);
+
+  --clr-font-main: rgb(61, 60, 60);
+  --clr-font-light: rgb(128, 128, 128);
 
   --font-size-h1: 3rem;
   --font-size-text: 1.5rem;
@@ -54,3 +57,4 @@ a:visited {
 }
 
 //Margin-bottom 1rem ?
+// Universal gray var for font color for frequency, categories and other subtitles

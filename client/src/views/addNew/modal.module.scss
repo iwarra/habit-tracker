@@ -30,14 +30,15 @@
   width: 80vw;
   height: 70vh;
   border-radius: 25px;
-  color: black;
+  color: var(--clr-font-main);
   margin: 0 auto;
   padding: 2em;
   display: flex;
   flex-direction: column;
-  gap: 2em;
+  gap: 1em;
   overflow: hidden;
   position: relative;
+  font-size: var(--font-size-text);
 }
 
 
@@ -52,27 +53,6 @@
     border-bottom: 1px solid black;
     font-weight: 600;
   }
-}
-
-
-.circle {
-  --size: 200px;
-  position: absolute;
-  height: var(--size);
-  width: var(--size);
-  border-radius: 50%;
-}
-
-.blue {
-  background-color: var(--clr-circleBlue);
-  bottom: -130px;
-  left: 30px;
-}
-
-.pink {
-  background-color: var(--clr-circlePink);
-  bottom: -60px;
-  left: -30px;
 }
 
 .catColors, .icons {
@@ -95,13 +75,34 @@
 }
 
 .catBtn {
-  padding: 1em;
+  padding: .5em;
   background-color: rgb(38, 38, 125);
   color: white;
-  font-size: large;
+  font-size: 1em;
   font-weight: 600;
   border: none;
   border-radius: 15px;
   margin-top: 1em;
+  cursor: pointer;
 }
 
+/* .circle {
+  --size: 200px;
+  position: absolute;
+  height: var(--size);
+  width: var(--size);
+  border-radius: 50%;
+}
+
+.blue {
+  background-color: var(--clr-circleBlue);
+  bottom: -130px;
+  left: 30px;
+}
+
+.pink {
+  background-color: var(--clr-circlePink);
+  bottom: -90px;
+  left: -50px;
+}
+ */

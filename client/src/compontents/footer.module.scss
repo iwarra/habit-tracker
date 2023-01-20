@@ -9,23 +9,27 @@
   background-color: #eee;
   box-shadow: 0px -1px 3px 0px rgba(89, 89, 89, 0.213);
 
-  .fooLink {
+  .fooLink, .fooLink:active {
     display: flex;
     align-items: center;
+    color: black;
   }
 
   .icon {
     cursor: pointer;
+    color: black;
   }
 }
 
 .addIcon {
   font-size: 1.6em;
-  color: black;
 }
 
 .backIcon {
   color:black;
   font-size: 1.3em;
-  
+}
+
+.addIcon:hover, .icon:hover, .backIcon:hover {
+  color: var(--clr-accent);
 }
