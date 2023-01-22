@@ -4,7 +4,7 @@ import StatsContext from "../../context/StatsContext"
 import { addItem } from "../../utils/localStorage/addItem"
 import { getAllItems } from "../../utils/localStorage/getAllItems"
 import { IoMdAddCircle } from "react-icons/io"
-import { useRef, useState, useContext } from "react"
+import { useState, useContext } from "react"
 import { createPortal } from "react-dom"
 import { repetition } from "../../mongodb/habits"
 import { serveDefault } from "../../utils/localStorage/serveDefault"
@@ -23,8 +23,9 @@ const AddNew = () => {
     repetition: '',
     monthlyTotal: '',
   })
- 
-  const initial = useRef()
+
+  console.log(newHabit)
+
   const { setHabitsCount } = useContext(StatsContext)
   const storedCategories = getAllItems('Categories') 
 
@@ -41,14 +42,14 @@ const AddNew = () => {
         <header>
           <h1>Create New Habit</h1>
           <label htmlFor="newHabit" className={style.labInp}>Add:
-            <span className={style.firstInput}
-              id="spanInput"
-              contentEditable=""
-              ref={initial}
+            <input className={style.firstInput}
+              id="habitInput"
+              type="text"
+              required
               value={newHabit.name}
-              onInput={() => setNewHabit(prev => ({
+              onChange={(e) => setNewHabit(prev => ({
                         ...prev,
-                        name: initial.current.innerHTML}))
+                        name: e.target.value}))
                       }/>
           </label>
         </header>
@@ -61,10 +62,7 @@ const AddNew = () => {
                   onClick={() => setNewHabit(prev => ({
                               ...prev,
                               repetition: item.name,
-                              monthlyTotal: item.number,
-                              }))}>
-                            {item.name}
-                          </li>)}
+                              monthlyTotal: item.number}))}> {item.name} </li>)}
               </ul>
           </div>
           <div className={style.catWrapper}>
@@ -76,8 +74,9 @@ const AddNew = () => {
                   key={item.id}
                   onClick={() => setNewHabit(prev => ({ 
                     ...prev,
-                    category: item.name}))}
-                  >{item.name}</li>
+                    category: item.name,
+                    color: item.color,
+                    icon: item.icon}))}> {item.name} </li>
                 })}
               </ul>
               <div className={style.addCategory} onClick={handleAddCategory}>
@@ -91,9 +90,8 @@ const AddNew = () => {
             onClick={() => {
             addItem(newHabit, 'habitList')
             setHabitsCount(prev => prev + 1)
-            document.getElementById('spanInput').focus()
-            document.getElementById('spanInput').value = ''
-            // initial.value = '' needs to reset on click
+            document.getElementById('habitInput').focus()
+            newHabit.name = '' 
             }}
             >Create habit</button>
         </main>

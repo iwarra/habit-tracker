@@ -1,10 +1,5 @@
-* Had in package.json
-"vite-plugin-mkcert": "^1.10.1",
-
-* Add habit page:
-   - input validation (add event on enter?)
-   - delete input text after adding
-
+* TO DO TODAY (Add habit page):
+   - input validation 
 
 
 Remaining in Calendar:
@@ -20,9 +15,8 @@ Remaining in Calendar:
    - responsiveness like hover etc
    - footer styling (no shadow in addNew page)
    - addNew cta hover style solution
-   - calender left bottom corner border radius issue
 
-
-* switch span for input with the same styling (easier to handle)
+* Had in package.json
+"vite-plugin-mkcert": "^1.10.1",
 
 Note: tripadvisor bg-color: #faf1ed and accent-clr #ffcccb

@@ -49,9 +49,12 @@
 
   .catInput {
     width: 100%;
-    padding-left: .5em;
-    border-bottom: 1px solid black;
-    font-weight: 600;
+    padding: .7em .3em;
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid rgb(144, 142, 142);
+    font-size: var(--font-size-text);
+    color: var(--clr-font-main);
   }
 }
 
