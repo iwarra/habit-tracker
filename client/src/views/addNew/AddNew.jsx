@@ -1,13 +1,14 @@
-import style from "./addNew.module.scss"
-import Modal from "./Modal"
+import { useContext, useState } from "react"
+import { createPortal } from "react-dom"
+import { IoMdAddCircle } from "react-icons/io"
+import { redirect } from "react-router-dom"
 import StatsContext from "../../context/StatsContext"
+import { repetition } from "../../mongodb/habits"
 import { addItem } from "../../utils/localStorage/addItem"
 import { getAllItems } from "../../utils/localStorage/getAllItems"
-import { IoMdAddCircle } from "react-icons/io"
-import { useState, useContext } from "react"
-import { createPortal } from "react-dom"
-import { repetition } from "../../mongodb/habits"
 import { serveDefault } from "../../utils/localStorage/serveDefault"
+import style from "./addNew.module.scss"
+import Modal from "./Modal"
 
 serveDefault('Categories')
 
@@ -24,14 +25,20 @@ const AddNew = () => {
     monthlyTotal: '',
   })
 
-  console.log(newHabit)
-
   const { setHabitsCount } = useContext(StatsContext)
   const storedCategories = getAllItems('Categories') 
 
   function handleAddCategory(event) {
     if (event.target != 'button' && event.target.closest('#modalWrap')) return
     setIsModalOpen(prev => !prev)
+  }
+
+  function handleAddHabit() {
+    addItem(newHabit, 'habitList')
+    setHabitsCount(prev => prev + 1)
+    document.getElementById('habitInput').focus()
+    newHabit.name = '' 
+    redirect("/") //funkar ej
   }
 
   return (
@@ -47,10 +54,8 @@ const AddNew = () => {
               type="text"
               required
               value={newHabit.name}
-              onChange={(e) => setNewHabit(prev => ({
-                        ...prev,
-                        name: e.target.value}))
-                      }/>
+              onChange={(e) => setNewHabit(prev => ({...prev, name: e.target.value}))}
+            />
           </label>
         </header>
         <main>
@@ -86,14 +91,7 @@ const AddNew = () => {
               </div>
             </div>
           </div>
-          <button className={style.btn}
-            onClick={() => {
-            addItem(newHabit, 'habitList')
-            setHabitsCount(prev => prev + 1)
-            document.getElementById('habitInput').focus()
-            newHabit.name = '' 
-            }}
-            >Create habit</button>
+          <button className={style.btn} onClick={handleAddHabit}>Create habit</button>
         </main>
       </div>
     </div>

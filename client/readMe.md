@@ -1,5 +1,7 @@
 * TO DO TODAY (Add habit page):
    - input validation 
+   - footer bug
+   - return to previous page after adding new (redirect)
 
 
 Remaining in Calendar:
@@ -15,6 +17,7 @@ Remaining in Calendar:
    - responsiveness like hover etc
    - footer styling (no shadow in addNew page)
    - addNew cta hover style solution
+
 
 * Had in package.json
 "vite-plugin-mkcert": "^1.10.1",

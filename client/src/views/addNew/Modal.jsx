@@ -1,8 +1,7 @@
-import style from "./modal.module.scss"
 import { useState } from "react";
-import { categories as defaultCategories} from "../../mongodb/habits.js"
-import { categoryColorOptions, iconOptions } from "../../mongodb/habits.js"
-import { getIconsPath } from '../../utils/getIconsPath.js'
+import { categories as defaultCategories, categoryColorOptions, iconOptions } from "../../mongodb/habits.js";
+import { getIconsPath } from '../../utils/getIconsPath.js';
+import style from "./modal.module.scss";
 
 const Modal = ({ setIsModalOpen }) => {
   const [ newCategory, setNewCategory ] = useState ({
@@ -26,22 +25,15 @@ const Modal = ({ setIsModalOpen }) => {
               <label htmlFor="">Add:</label>
               <input className={style.catInput}
                       value={newCategory.name}
-                      onChange={(e) => setNewCategory(prev => ({
-                        ...prev,
-                        name: e.target.value}))
-                      }
-                    />
+                      onChange={(e) => setNewCategory(prev => ({...prev, name: e.target.value}))}/>
             </div>
             <span>Pick a color:</span>
             <ul className={style.catColors}>
               {categoryColorOptions.map(item => {
                 const backgroundColor = {backgroundColor: item.colorCode}
-                console.log(item)
                 return (
                   <li key={item.id} className={style.colorDiv} style={backgroundColor} 
-                  onClick={() => 
-                    { console.log(item.colorCode)
-                      setNewCategory(prev => ({...prev, color: item.colorCode}))}}
+                  onClick={() => {setNewCategory(prev => ({...prev, color: item.colorCode}))}}
                   ></li>)
               })}
             </ul>

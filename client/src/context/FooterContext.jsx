@@ -1,8 +1,8 @@
-import style from "../compontents/footer.module.scss"
 import { createContext } from "react"
-import { IoMdAddCircle } from "react-icons/io"
 import { BsFillArrowDownCircleFill } from "react-icons/bs"
+import { IoMdAddCircle } from "react-icons/io"
 import { useLocation } from "react-router-dom"
+import style from "../compontents/footer.module.scss"
 
 const FooterContext = createContext({})
 
