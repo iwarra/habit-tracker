@@ -1,7 +1,6 @@
 * TO DO TODAY (Add habit page):
-   - input validation 
-   - footer bug (position problem?)
-   - add * route with page not found
+   - input validation / error handling
+   - Footer icons size diff
 
     CSS notes:
    - Calendar dates wrap (set min-width?)

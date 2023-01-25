@@ -40,6 +40,15 @@ const AddNew = () => {
     navigate("/") 
   }
 
+  function inputValidation(e, setter) {
+    if (e.target.value.trim()) {
+      console.log(e.target.value)
+      setter(prev => ({...prev, name: e.target.value}))
+    } 
+    else throw new Error('You must add your text')
+    return
+  }
+
   return (
     <div className={style.wrapper}>
       <div className={`${style.blue} ${style.circle}`}></div>
@@ -53,7 +62,7 @@ const AddNew = () => {
               type="text"
               required
               value={newHabit.name}
-              onChange={(e) => setNewHabit(prev => ({...prev, name: e.target.value}))}
+              onChange={(e) => inputValidation(e, setNewHabit)}
             />
           </label>
         </header>

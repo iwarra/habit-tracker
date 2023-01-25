@@ -1,6 +1,6 @@
 import { createContext } from "react"
 import { BsFillArrowDownCircleFill } from "react-icons/bs"
-import { IoMdAddCircle } from "react-icons/io"
+import { IoMdAddCircle, IoMdHome } from "react-icons/io"
 import { useLocation } from "react-router-dom"
 import style from "../compontents/footer.module.scss"
 
@@ -12,11 +12,15 @@ export const FooterProvider =({ children })=> {
   function setFooterIcon() {
     if (location.pathname === "/") return {
       link: "/add",
-      icon: <IoMdAddCircle className={style.addIcon} role="button" />
+      icon: <IoMdAddCircle className={style.centralIcon} role="button" />
     }
     if (location.pathname === "/add") return {
       link: "/",
-      icon: <BsFillArrowDownCircleFill className={style.backIcon} role="button" />
+      icon: <BsFillArrowDownCircleFill className={style.centralIcon} role="button" />
+    }
+    else return {
+      link: "/",
+      icon: <IoMdHome className={style.centralIcon} role="button" />
     }
   }
 

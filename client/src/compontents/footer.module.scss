@@ -13,23 +13,16 @@
     display: flex;
     align-items: center;
     color: black;
-  }
-
-  .icon {
     cursor: pointer;
-    color: black;
   }
 }
 
-.addIcon {
+.centralIcon {
+  //needs fixing
   font-size: 1.6em;
+  display: block;
 }
 
-.backIcon {
-  color:black;
-  font-size: 1.3em;
-}
-
-.addIcon:hover, .icon:hover, .backIcon:hover {
+.centralIcon:hover, .icon:hover {
   color: var(--clr-accent);
 }

@@ -33,12 +33,12 @@
     color: var(--clr-accent);
     font-size: smaller;
     cursor: pointer;
-    transition: .3s;
+    transition: 1s;
   }
 
   .seeMoreLink:hover {
-    font-size: x-large;
-    transition: .3s;
+    font-weight: 600;
+    transition-timing-function: ease-in-out;
   }
 }
 
