@@ -1,7 +1,12 @@
 * TO DO TODAY (Add habit page):
    - input validation 
-   - footer bug
-   - return to previous page after adding new (redirect)
+   - footer bug (position problem?)
+   - add * route with page not found
+
+    CSS notes:
+   - Calendar dates wrap (set min-width?)
+   - responsiveness like hover etc
+   - addNew cta hover style solution
 
 
 Remaining in Calendar:
@@ -11,12 +16,6 @@ Remaining in Calendar:
    - should a user be able to edit and delete habits here
    - should it display only the habits for that day
 
-
-   CSS notes:
-   - Calendar dates wrap (set min-width?)
-   - responsiveness like hover etc
-   - footer styling (no shadow in addNew page)
-   - addNew cta hover style solution
 
 
 * Had in package.json

@@ -1,7 +1,7 @@
 import { useContext, useState } from "react"
 import { createPortal } from "react-dom"
 import { IoMdAddCircle } from "react-icons/io"
-import { redirect } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import StatsContext from "../../context/StatsContext"
 import { repetition } from "../../mongodb/habits"
 import { addItem } from "../../utils/localStorage/addItem"
@@ -27,6 +27,7 @@ const AddNew = () => {
 
   const { setHabitsCount } = useContext(StatsContext)
   const storedCategories = getAllItems('Categories') 
+  const navigate = useNavigate();
 
   function handleAddCategory(event) {
     if (event.target != 'button' && event.target.closest('#modalWrap')) return
@@ -36,9 +37,7 @@ const AddNew = () => {
   function handleAddHabit() {
     addItem(newHabit, 'habitList')
     setHabitsCount(prev => prev + 1)
-    document.getElementById('habitInput').focus()
-    newHabit.name = '' 
-    redirect("/") //funkar ej
+    navigate("/") 
   }
 
   return (
