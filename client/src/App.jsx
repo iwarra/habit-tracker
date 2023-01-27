@@ -9,6 +9,7 @@ import Overview from "./compontents/Overview"
 import RootLayout from "./layouts/RootLayout"
 import NotFound from "./compontents/NotFound"
 import { StatsProvider } from "./context/StatsContext"
+import { ValidationProvider } from "./context/ValidationContext"
 
 /* <Route path='profile' element={<Profile />} */
 
@@ -25,7 +26,9 @@ const router = createBrowserRouter(
     function App() {
   return (
         <StatsProvider>
+        <ValidationProvider>
           <RouterProvider router={router} />
+        </ValidationProvider>
         </StatsProvider> 
         )
 }

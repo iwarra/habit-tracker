@@ -53,6 +53,10 @@
   }
 }
 
+.errorMessage {
+  color: var(--clr-circleRed);
+}
+
 .frequency {
   display: flex;
   flex-direction: column;

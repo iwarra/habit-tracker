@@ -3,6 +3,7 @@ import { createPortal } from "react-dom"
 import { IoMdAddCircle } from "react-icons/io"
 import { useNavigate } from "react-router-dom"
 import StatsContext from "../../context/StatsContext"
+import ValidationContext from "../../context/ValidationContext"
 import { repetition } from "../../mongodb/habits"
 import { addItem } from "../../utils/localStorage/addItem"
 import { getAllItems } from "../../utils/localStorage/getAllItems"
@@ -26,6 +27,7 @@ const AddNew = () => {
   })
 
   const { setHabitsCount } = useContext(StatsContext)
+  const { inputValidation, isVisible, setIsVisible } = useContext(ValidationContext)
   const storedCategories = getAllItems('Categories') 
   const navigate = useNavigate();
 
@@ -35,18 +37,11 @@ const AddNew = () => {
   }
 
   function handleAddHabit() {
+    if (inputValidation(newHabit.name, 'habitVis')) return
     addItem(newHabit, 'habitList')
     setHabitsCount(prev => prev + 1)
+    setIsVisible(prev => ({...prev, habitVis: false}))
     navigate("/") 
-  }
-
-  function inputValidation(e, setter) {
-    if (e.target.value.trim()) {
-      console.log(e.target.value)
-      setter(prev => ({...prev, name: e.target.value}))
-    } 
-    else throw new Error('You must add your text')
-    return
   }
 
   return (
@@ -62,9 +57,13 @@ const AddNew = () => {
               type="text"
               required
               value={newHabit.name}
-              onChange={(e) => inputValidation(e, setNewHabit)}
+              onChange={(e) => setNewHabit(prev => ({...prev, name: e.target.value}))
+              }
             />
           </label>
+           <div>
+            { isVisible.habitVis ? <span className={style.errorMessage}>Please enter a new habit</span> : '' }
+            </div>
         </header>
         <main>
           <div className={style.frequency}> 

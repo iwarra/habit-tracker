@@ -41,6 +41,9 @@
   font-size: var(--font-size-text);
 }
 
+.errorMessage {
+  color: var(--clr-circleRed)
+}
 
 .labInp {
   display: flex;

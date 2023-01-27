@@ -1,8 +1,5 @@
-* TO DO TODAY (Add habit page):
-   - input validation / error handling
-   - Footer icons size diff
-
-    CSS notes:
+* unresolved (Add habit page):
+   - Footer icons size diff (svg issue?)
    - Calendar dates wrap (set min-width?)
    - responsiveness like hover etc
    - addNew cta hover style solution
