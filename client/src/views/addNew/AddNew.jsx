@@ -46,7 +46,7 @@ const AddNew = () => {
 
   return (
     <div className={style.wrapper}>
-      <div className={`${style.blue} ${style.circle}`}></div>
+      <div className={`${style.purple} ${style.circle}`}></div>
       <div className={`${style.pink} ${style.circle}`}></div>
       <div className={style.miniWrapper}>
         <header>

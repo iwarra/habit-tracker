@@ -7,7 +7,7 @@ const Calendar = () => {
   return (
           <div className={style.wrapper}>
             <div className={`${style.red} ${style.circle}`}></div>
-            <div className={`${style.blue} ${style.circle}`}></div>
+            <div className={`${style.purple} ${style.circle}`}></div>
             <div className={`${style.pink} ${style.circle}`}></div>
             <div className={style.heading}>
               <h2>{calendarTitle()}</h2> 

@@ -11,7 +11,6 @@ const Modal = ({ setIsModalOpen }) => {
     icon: "",
     id: crypto.randomUUID(),
   })
-
   const { inputValidation, isVisible, setIsVisible } = useContext(ValidationContext)
 
   function addNewCategory(newCat) {

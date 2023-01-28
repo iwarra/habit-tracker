@@ -72,7 +72,7 @@
     padding: .4em 1em;
     border-radius: 10px;
     cursor: pointer;
-    background-color: var(--clr-primary);
+    background-color: #eee;
     transition: 1s;
   }
 
@@ -168,8 +168,8 @@
   border-radius: 50%;
 }
 
-.blue {
-  background-color: var(--clr-circleBlue);
+.purple {
+  background-color: var(--clr-circlePurple);
   top: -100px;
   right: -150px;
 }
