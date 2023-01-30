@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  //radius left corner not ok
   border-radius: 2rem 2rem;
   padding: 2rem;
   background-color: var(--clr-primary);
@@ -13,31 +12,33 @@
 }
 
 .heading {
-  display: flex;
-  flex-direction: row;
-  //width: 100%;
-  justify-content: space-between;
-  align-items: center;
   z-index: 1;
+}
 
-  .arrows {
-    display: flex;
-    gap: .9em;
-    cursor: pointer;
-    font-size: 2.2rem;
-    transition: .3s;
-  }
+.leftArrow, .rightArrow {
+  cursor: pointer;
+  font-size: 3rem;
+  transition: .3s;
+  z-index: 1;
+  color: white;
+}
 
-  .leftArrow:hover, .rightArrow:hover {
-    font-weight: 700;
-    transition: .3s;
-  }
+.leftArrow:hover, .rightArrow:hover {
+  font-size: 3.3rem;
+  transition: .3s;
+}
+
+.datesWrap {
+  display: flex;
+  align-items: center;
 }
 
 .dates {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  width: 100%;
+  justify-content: space-evenly;
+  gap: .5em;
   list-style: none;
   z-index: 1;
 
@@ -49,15 +50,15 @@
 
     .inactive {
       background-color: #ebe0e092;
-      padding: .3rem .7rem 1rem .7rem;
-      border-radius: .5rem;
+      padding: .3rem .6rem 1rem .6rem;
+      border-radius: .6rem;
     }
 
     .active {
       background-color: white;
       color: black;
       padding: .3rem .7rem 1rem .7rem;
-      border-radius: .5rem;
+      border-radius: .6rem;
     }
   }
 }
@@ -68,20 +69,20 @@
   position: absolute;
 }
 
-.purple {
+.blue {
   width: 500px;
   height: 500px;
-  background-color: var(--clr-circlePurple);
+  background-color: var(--clr-circleBlue);
   top: 0;
-  left: -90px;
+  left: -80px;
 }
-
+ 
 .red {
-  width: 210px;
-  height: 210px;
+  width: 250px;
+  height: 250px;
   background-color: var(--clr-circleRed);
   right: -10px;
-  bottom: -70px;
+  bottom: -100px;
 }
 
 .pink {

@@ -10,7 +10,7 @@ const HabitCard = ({item}) => {
   const { setHabitsCompleted } = useContext(StatsContext)
   const {color, icon, name, repetition, monthlyTotal} = item
   const inlineStyle = {backgroundColor: color}
-
+  
   function handleCheck(id) {
     setCheck((prev) => !prev)
     updateItem(id, 'habitList')

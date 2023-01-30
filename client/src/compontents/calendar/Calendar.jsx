@@ -1,5 +1,6 @@
 import style from "./calendar.module.scss"
-import { useCalendar } from '../../hooks/useCalendar.jsx'
+import { useCalendar } from "../../hooks/useCalendar.jsx"
+import { IoMdArrowDropright, IoMdArrowDropleft } from "react-icons/io"
 
 const Calendar = () => {
   const { week, handleWeek, calendarTitle } = useCalendar()
@@ -7,19 +8,14 @@ const Calendar = () => {
   return (
           <div className={style.wrapper}>
             <div className={`${style.red} ${style.circle}`}></div>
-            <div className={`${style.purple} ${style.circle}`}></div>
+            <div className={`${style.blue} ${style.circle}`}></div>
             <div className={`${style.pink} ${style.circle}`}></div>
-            <div className={style.heading}>
-              <h2>{calendarTitle()}</h2> 
-              <div className={style.arrows}>
-                <span role="button" 
-                  className={style.leftArrow}
-                  onClick={() => handleWeek('previous')}>&lt;</span>
-                <span role="button" 
-                  className={style.rightArrow}
-                  onClick={() => handleWeek('next')}>&gt;</span>
-              </div>
-            </div>
+            <h2 className={style.heading}>{calendarTitle()}</h2> 
+            <div className={style.datesWrap}>
+              <IoMdArrowDropleft 
+              role="button" 
+              className={style.leftArrow}
+              onClick={() => handleWeek('previous')}/>
             <ul className={style.dates}> 
               {week.map((week) => {
                 const { date, day, id, today } = week
@@ -35,6 +31,11 @@ const Calendar = () => {
                 )
               })}
             </ul>
+              <IoMdArrowDropright 
+              role="button" 
+              onClick={() => handleWeek('next')}
+              className={style.rightArrow}/>
+            </div>
           </div>
         )
 };

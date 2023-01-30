@@ -28,7 +28,7 @@
 .modalWrap {
   background-color: rgb(246, 243, 243);
   width: 80vw;
-  height: 60vh;
+  height: auto;
   border-radius: 25px;
   color: var(--clr-font-main);
   margin: 0 auto;
@@ -82,7 +82,7 @@
 
 .catBtn {
   padding: .5em;
-  background-color: rgb(38, 38, 125);
+  background-color: var(--clr-btn);
   color: white;
   font-size: 1em;
   font-weight: 600;
