@@ -3,15 +3,14 @@ import Habits from './Habits'
 import WeeklyStats from './WeeklyStats'
 import style from './overview.module.scss'
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
-import { getAllItems } from '../utils/localStorage/getAllItems.js'
 import { serveDefault } from '../utils/localStorage/serveDefault.js'
+import { useHabits } from '../hooks/useHabits'
 
 // serve default Habits to localStorage
 serveDefault('habitList')
 
 const Overview = () => {
-  const [habits, setHabits] = useState(getAllItems('habitList'))
+  const { habits, handleCheck } = useHabits()
   const name = /* username ?? */ "Guest"
   
   return (
@@ -21,9 +20,11 @@ const Overview = () => {
             <div className={style.habits}>
               <div className={style.heading}>
                 <h2>Today</h2>
-                <Link className={style.seeMoreLink} >see more</Link>
+                <Link className={style.seeMoreLink}>see more</Link>
               </div>
-              <Habits habits={habits}/>
+              <Habits 
+                habits={habits} 
+                handleCheck={handleCheck}/>
             </div>
             <WeeklyStats />
           </main>

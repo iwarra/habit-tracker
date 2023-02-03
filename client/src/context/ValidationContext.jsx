@@ -10,8 +10,8 @@ export const ValidationProvider = ({ children }) => {
 
   function inputValidation(inputValue, inputKind) {
     if (!inputValue.trim()) {
-      if (inputKind == 'habitVis') setIsVisible((prev) => ({...prev, habitVis: true})) 
-      else if (inputKind == 'categoryVis') setIsVisible((prev) => ({...prev, categoryVis: true}))
+      if (inputKind === 'habitVis') setIsVisible((prev) => ({...prev, habitVis: true})) 
+      else if (inputKind === 'categoryVis') setIsVisible((prev) => ({...prev, categoryVis: true}))
 
       return true
     }

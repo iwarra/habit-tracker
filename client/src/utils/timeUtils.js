@@ -26,6 +26,16 @@ const dateObject = {
   }
 }
 
+/* function updateMonth(date) {
+  const year = date.getFullYear()
+  const month = date.getMonth()
+  const daysInMonth = getDaysInMonth(new Date(year, month))
+  console.log('nr of days', daysInMonth)
+  const nextMonth = new Date(year, month + 1)
+  if (date.getDate() === daysInMonth) {  
+  }
+  return (date.getDate() > daysInMonth) ? updatedDate : date
+} */
 
 function datesOfWeek(date) {
   const current = date ?? new Date()
@@ -33,12 +43,21 @@ function datesOfWeek(date) {
   return new Array(7)
     .fill()
     .map((_, slot) => {
-      const nextDate = new Date(startingPoint).getDate() + slot
+     /*  const nextDate = new Date(startingPoint).getDate() + slot
       const date = current.setDate(nextDate)
       return {
         date: new Date(date).getDate(),
         month: new Date(date).getMonth(),
         year: new Date(date).getFullYear()
+      } */
+      
+      const nextDate = new Date(startingPoint)
+      let test = new Date(nextDate.getFullYear(), nextDate.getMonth(), (nextDate.getDate() + slot))
+      
+      return {
+        date: test.getDate(),
+        month: test.getMonth(),
+        year: test.getFullYear()
       }
     })
     .map((item, index) => {

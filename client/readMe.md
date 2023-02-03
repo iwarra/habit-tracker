@@ -4,6 +4,11 @@
    - responsiveness like hover etc
    - addNew cta hover style solution
 
+Main logic tasks: 
+   - make habit context - DONE
+   - refactor the useHabits hook - Partially
+   - refactor the ValidationContext with React Hook Form and make it a custom hook instead?
+
 
 Remaining in Calendar:
 * Click a date and get all habits for the day
