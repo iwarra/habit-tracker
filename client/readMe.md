@@ -5,9 +5,7 @@
    - addNew cta hover style solution
 
 Main logic tasks: 
-   - make habit context - DONE
-   - refactor the useHabits hook - Partially
-   - refactor the ValidationContext with React Hook Form and make it a custom hook instead?
+   - expand the useHabits hook with additional logic
 
 
 Remaining in Calendar:

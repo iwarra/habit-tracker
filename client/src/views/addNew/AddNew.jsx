@@ -4,7 +4,6 @@ import { IoMdAddCircle } from "react-icons/io"
 import { useNavigate } from "react-router-dom"
 import { useForm } from "react-hook-form"
 import StatsContext from "../../context/StatsContext"
-import ValidationContext from "../../context/ValidationContext"
 import { repetition } from "../../mongodb/habits"
 import { addItem } from "../../utils/localStorage/addItem"
 import { getAllItems } from "../../utils/localStorage/getAllItems"
@@ -28,9 +27,10 @@ const AddNew = () => {
   })
 
   const { setHabitsCount } = useContext(StatsContext)
-  const { inputValidation, isVisible, setIsVisible } = useContext(ValidationContext)
   const storedCategories = getAllItems('Categories') 
   const navigate = useNavigate();
+  const { register, formState, handleSubmit } = useForm();
+  const { errors } = formState
 
   function handleAddCategory(event) {
     if (event.target != 'button' && event.target.closest('#modalWrap')) return
@@ -38,10 +38,8 @@ const AddNew = () => {
   }
 
   function handleAddHabit() {
-    if (inputValidation(newHabit.name, 'habitVis')) return
     addItem(newHabit, 'habitList')
     setHabitsCount(prev => prev + 1)
-    setIsVisible(prev => ({...prev, habitVis: false}))
     navigate("/") 
   }
 
@@ -54,17 +52,17 @@ const AddNew = () => {
           <h1>Create New Habit</h1>
           <label htmlFor="newHabit" className={style.labInp}>Add:
             <input className={style.firstInput}
+              {...register("habit", {
+                name: 'habit',
+                required: 'Please enter a new habit',
+                onChange: (e) => setNewHabit(prev => ({...prev, name: e.target.value})),
+                type: 'text',
+              })}
               id="habitInput"
-              type="text"
-              required
               value={newHabit.name}
-              onChange={(e) => setNewHabit(prev => ({...prev, name: e.target.value}))
-              }
             />
           </label>
-           <div>
-            { isVisible.habitVis ? <span className={style.errorMessage}>Please enter a new habit</span> : '' }
-            </div>
+           <span className={style.errorMessage}>{errors.habit?.message}</span>
         </header>
         <main>
           <div className={style.frequency}> 
@@ -99,7 +97,7 @@ const AddNew = () => {
               </div>
             </div>
           </div>
-          <button className={style.btn} onClick={handleAddHabit}>Create habit</button>
+          <button className={style.btn} onClick={handleSubmit(handleAddHabit)}>Create habit</button>
         </main>
       </div>
     </div>

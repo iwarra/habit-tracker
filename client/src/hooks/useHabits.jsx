@@ -12,6 +12,10 @@ export const useHabits = () => {
     setHabits(prev => prev.map(habit => habit.id === item.id ? {...habit, checked: !habit.checked} : habit))
   }
 
+  function addNewHabit() {
+    
+  }
+
   //rename
   function handleCheck(item) {
     updateChecks(item)
