@@ -10,6 +10,7 @@ import RootLayout from "./layouts/RootLayout"
 import NotFound from "./compontents/NotFound"
 import { StatsProvider } from "./context/StatsContext"
 import { HabitProvider } from "./context/HabitContext"
+import SeeMore from "./views/SeeMore"
 
 /* <Route path='profile' element={<Profile />} */
 
@@ -18,6 +19,7 @@ const router = createBrowserRouter(
     <Route element={<RootLayout />}>
       <Route exact path="/" element={<Overview />}/>
       <Route path="add" element={<AddNew />}/>
+      <Route path="/more" element={<SeeMore />}/>
       <Route path="*" element={<NotFound />}/>
     </Route>
     )
