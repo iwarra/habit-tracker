@@ -1,0 +1,28 @@
+.more {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  max-width: 940px;
+  min-width: 80vw;
+  margin-top: 2rem;
+
+
+  h1 {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.habit {
+  list-style: none;
+  padding: 2rem;
+  margin-bottom: 1rem;
+  border-radius: 1em;
+  color: var(--clr-font-main);
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+
+  p {
+    font-size: larger;
+  }
+}

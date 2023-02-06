@@ -1,12 +1,15 @@
-* unresolved (Add habit page):
+* Add habit page:
    - Footer icons size diff (svg issue?)
-   - Calendar dates wrap (set min-width?)
    - responsiveness like hover etc
    - addNew cta hover style solution
+   - extract logic outside of the component
+
+* Overview: 
+   - Calendar dates wrap (set min-width?)
+   - Habits sorting once they are checked
 
 Main logic tasks: 
    - expand the useHabits hook with additional logic
-
 
 Remaining in Calendar:
 * Click a date and get all habits for the day

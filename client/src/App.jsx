@@ -10,7 +10,7 @@ import RootLayout from "./layouts/RootLayout"
 import NotFound from "./compontents/NotFound"
 import { StatsProvider } from "./context/StatsContext"
 import { HabitProvider } from "./context/HabitContext"
-import SeeMore from "./views/SeeMore"
+import SeeMore from "./views/addNew/SeeMore"
 
 /* <Route path='profile' element={<Profile />} */
 
