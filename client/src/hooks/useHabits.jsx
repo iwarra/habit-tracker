@@ -3,6 +3,7 @@ import { getAllItems } from "../utils/localStorage/getAllItems"
 import { updateItem } from "../utils/localStorage/updateItem"
 import StatsContext from "../context/StatsContext"
 import HabitContext from "../context/HabitContext"
+import confetti from "canvas-confetti"
 
 export const useHabits = () => {
   const { setHabitsCompleted } = useContext(StatsContext)
@@ -12,8 +13,8 @@ export const useHabits = () => {
     setHabits(prev => prev.map(habit => habit.id === item.id ? {...habit, checked: !habit.checked} : habit))
   }
 
-  function addNewHabit() {
-    
+  function addNewHabit(newItem) {
+    setHabits(newItem)
   }
 
   //rename
@@ -21,7 +22,8 @@ export const useHabits = () => {
     updateChecks(item)
     updateItem(item.id, 'habitList')
     setHabitsCompleted(getAllItems('habitList').filter(item => item.checked === true).length)
+    if (item.checked === false) return confetti()
   }
 
-  return {habits, handleCheck}
+  return {habits, handleCheck, addNewHabit}
 }
