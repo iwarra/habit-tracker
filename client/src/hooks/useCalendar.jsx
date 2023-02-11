@@ -1,32 +1,21 @@
 import { useState } from "react"
-import { datesOfWeek, dateObject } from "../utils/timeUtils.js"
-import nextSunday from 'date-fns/nextSunday'
-import previousSunday from 'date-fns/previousSunday'
-import getWeek from 'date-fns/getWeek'
+import { dateObject } from "../utils/timeUtils.js"
+import getWeek from "date-fns/getWeek"
+import { getWeekDates } from "../utils/timeUtils.js"
 
-const today = datesOfWeek().filter(day => day.today === true)[0].fullDate
+const today = getWeekDates().filter((day) => day.today === true).at(0).date
 
 export const useCalendar = () => {
-  const [week, setWeek] = useState(datesOfWeek())
-  const [date, setDate] = useState(today)
-
-  const handleWeek = (option) => {
-    let startDate = week[0].fullDate
-    let newWeek;
-
-    if (option === "next") newWeek = datesOfWeek(nextSunday(startDate))
-    if (option === "previous") newWeek = datesOfWeek(previousSunday(startDate))
-
-    setWeek(newWeek)
-    setDate(newWeek[0].fullDate)
-  }
+  const [dates, setDates] = useState(getWeekDates())
 
   const calendarTitle = () => {
-    if (getWeek(today) !== getWeek(date)) return `Week number: ${getWeek(date)}`
+    if (!dates.some(el => el.today === true)) {
+      return `Week number: ${getWeek(dates.at(0).date)}`
+    }
     dateObject.setDate = today
     return `${dateObject.nameOfDay}, ${dateObject.month} ${dateObject.getDate}`
   }
 
-  return { week, date, handleWeek, calendarTitle }
+  return { calendarTitle, setDates, dates }
 }
 

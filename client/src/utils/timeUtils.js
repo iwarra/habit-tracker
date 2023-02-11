@@ -1,6 +1,7 @@
 import eachWeekendOfMonth from 'date-fns/eachWeekendOfMonth'
 import getWeeksInMonth from 'date-fns/getWeeksInMonth'
 import getDaysInMonth from 'date-fns/getDaysInMonth'
+import { startOfWeek, endOfWeek, addWeeks, format, eachDayOfInterval } from 'date-fns'
 
 const weekDays = [
     'Sunday',
@@ -48,58 +49,19 @@ const dateObject = {
     },
 }
 
-/* function updateMonth(date) {
-  const year = date.getFullYear()
-  const month = date.getMonth()
-  const daysInMonth = getDaysInMonth(new Date(year, month))
-  console.log('nr of days', daysInMonth)
-  const nextMonth = new Date(year, month + 1)
-  if (date.getDate() === daysInMonth) {  
-  }
-  return (date.getDate() > daysInMonth) ? updatedDate : date
-} */
+function getWeekDates(numWeeks = 0) {
+  const now = new Date()
+  const start = addWeeks(startOfWeek(now), numWeeks)
+  const end = addWeeks(endOfWeek(now), numWeeks)
 
-function datesOfWeek(date) {
-    const current = date ?? new Date()
-    let startingPoint = new Date().setDate(current.getDate() - current.getDay())
-    return new Array(7)
-        .fill()
-        .map((_, slot) => {
-            /*  const nextDate = new Date(startingPoint).getDate() + slot
-      const date = current.setDate(nextDate)
-      return {
-        date: new Date(date).getDate(),
-        month: new Date(date).getMonth(),
-        year: new Date(date).getFullYear()
-      } */
-
-            const nextDate = new Date(startingPoint)
-            let test = new Date(
-                nextDate.getFullYear(),
-                nextDate.getMonth(),
-                nextDate.getDate() + slot
-            )
-
-            return {
-                date: test.getDate(),
-                month: test.getMonth(),
-                year: test.getFullYear(),
-            }
-        })
-        .map((item, index) => {
-            const { date, month, year } = item
-            const today = shortFormat(new Date())
-            const itemDate = shortFormat(new Date(year, month, date))
-
-            return {
-                date,
-                fullDate: new Date(year, month, date),
-                day: weekDays[index].slice(0, 1),
-                id: weekDays[index],
-                today: today === itemDate,
-            }
-        })
+  return eachDayOfInterval({ start, end }).map((date) => ({
+    date,
+    id: crypto.randomUUID(),
+    today: format(date, 'yyyy-MM-dd') === format(new Date(), 'yyyy-MM-dd'),
+    dayName: format(date, 'EEEE'),
+  }))
 }
+
 
 // used for setting habit frequency
 function repetitionCalc() {
@@ -119,4 +81,4 @@ function repetitionCalc() {
     }
 }
 
-export { datesOfWeek, dateObject, repetitionCalc }
+export { dateObject, repetitionCalc, getWeekDates }
