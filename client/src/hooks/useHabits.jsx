@@ -14,6 +14,7 @@ export const useHabits = () => {
   }
 
   function addNewHabit(newItem) {
+    //the state is not updated, no reactiveness
     setHabits(newItem)
   }
 

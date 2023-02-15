@@ -1,15 +1,16 @@
-import { useContext, useState } from "react"
-import { createPortal } from "react-dom"
-import { IoMdAddCircle } from "react-icons/io"
-import { useNavigate } from "react-router-dom"
-import { useForm } from "react-hook-form"
-import StatsContext from "../context/StatsContext"
-import { repetition } from "../mongodb/habits"
-import { addItem } from "../utils/localStorage/addItem"
-import { getAllItems } from "../utils/localStorage/getAllItems"
-import { serveDefault } from "../utils/localStorage/serveDefault"
-import style from "./addNew.module.scss"
-import Modal from "./Modal"
+import { useContext, useState } from 'react'
+import { createPortal } from 'react-dom'
+import { IoMdAddCircle } from 'react-icons/io'
+import { useNavigate } from 'react-router-dom'
+import { useForm } from 'react-hook-form'
+import { useHabits } from '../hooks/useHabits'
+import StatsContext from '../context/StatsContext'
+import { repetition } from '../mongodb/habits'
+import { addItem } from '../utils/localStorage/addItem'
+import { serveDefault } from '../utils/localStorage/serveDefault'
+import { categoriesToShow } from '../utils/localStorage/showAllCategories'
+import style from './addNew.module.scss'
+import Modal from './Modal'
 
 serveDefault('Categories')
 
@@ -19,28 +20,30 @@ const AddNew = () => {
     id: crypto.randomUUID(),
     name: '',
     checked: false,
-    category: '',
-    color: '',
-    icon: '',
+    category: 'Uncategorized',
+    color: '#eee',
+    icon: 'checklist',
     repetition: '',
     monthlyTotal: '',
   })
 
+  // const { addNewHabit } = useHabits()
   const { setHabitsCount } = useContext(StatsContext)
-  const storedCategories = getAllItems('Categories') 
-  const navigate = useNavigate();
-  const { register, formState, handleSubmit } = useForm();
+
+  const navigate = useNavigate()
+  const { register, formState, handleSubmit } = useForm()
   const { errors } = formState
 
   function handleAddCategory(event) {
     if (event.target != 'button' && event.target.closest('#modalWrap')) return
-    setIsModalOpen(prev => !prev)
+    setIsModalOpen((prev) => !prev)
   }
 
   function handleAddHabit() {
+    //addNewHabit(newHabit) from useHabits hook
     addItem(newHabit, 'habitList')
-    setHabitsCount(prev => prev + 1)
-    navigate("/") 
+    setHabitsCount((prev) => prev + 1)
+    navigate('/')
   }
 
   return (
@@ -50,58 +53,83 @@ const AddNew = () => {
       <div className={style.miniWrapper}>
         <header>
           <h1>Create New Habit</h1>
-          <label htmlFor="newHabit" className={style.labInp}>Add:
-            <input className={style.firstInput}
-              {...register("habit", {
+          <label htmlFor="newHabit" className={style.labInp}>
+            Add:
+            <input
+              className={style.firstInput}
+              {...register('habit', {
                 name: 'habit',
                 required: 'Please enter a new habit',
-                onChange: (e) => setNewHabit(prev => ({...prev, name: e.target.value})),
+                onChange: (e) => setNewHabit((prev) => ({ ...prev, name: e.target.value })),
                 type: 'text',
               })}
               id="habitInput"
               value={newHabit.name}
             />
           </label>
-           <span className={style.errorMessage}>{errors.habit?.message}</span>
+          <span className={style.errorMessage}>{errors.habit?.message}</span>
         </header>
         <main>
-          <div className={style.frequency}> 
+          <div className={style.frequency}>
             <h2>Frequency</h2>
-              <ul className={style.freqUl}>
-                {repetition.map(item => <li key={item.id} 
-                  className={style.freqLi} 
-                  onClick={() => setNewHabit(prev => ({
-                              ...prev,
-                              repetition: item.name,
-                              monthlyTotal: item.number}))}> {item.name} </li>)}
-              </ul>
+            <ul className={style.freqUl}>
+              {repetition.map((item) => (
+                <li
+                  key={item.id}
+                  className={style.freqLi}
+                  onClick={() =>
+                    setNewHabit((prev) => ({
+                      ...prev,
+                      repetition: item.name,
+                      monthlyTotal: item.number,
+                    }))
+                  }
+                >
+                  {' '}
+                  {item.name}{' '}
+                </li>
+              ))}
+            </ul>
           </div>
           <div className={style.catWrapper}>
             <h2>Category</h2>
             <div className={style.categoryParent}>
               <ul className={style.categories}>
-                {storedCategories.map(item => {
-                  return <li style={{backgroundColor: item.color, cursor: 'pointer'}} 
-                  key={item.id}
-                  onClick={() => setNewHabit(prev => ({ 
-                    ...prev,
-                    category: item.name,
-                    color: item.color,
-                    icon: item.icon}))}> {item.name} </li>
+                {categoriesToShow().map((item) => {
+                  return (
+                    <li
+                      style={{ backgroundColor: item.color, cursor: 'pointer' }}
+                      key={item.id}
+                      onClick={() =>
+                        setNewHabit((prev) => ({
+                          ...prev,
+                          category: item.name,
+                          color: item.color,
+                          icon: item.icon,
+                        }))
+                      }
+                    >
+                      {' '}
+                      {item.name}{' '}
+                    </li>
+                  )
                 })}
               </ul>
               <div className={style.addCategory} onClick={handleAddCategory}>
-                <IoMdAddCircle role="button" className={style.addIcon}/>
+                <IoMdAddCircle role="button" className={style.addIcon} />
                 <span>Add category</span>
-                {isModalOpen && createPortal(<Modal setIsModalOpen={setIsModalOpen} />, document.body)}
+                {isModalOpen &&
+                  createPortal(<Modal setIsModalOpen={setIsModalOpen} />, document.body)}
               </div>
             </div>
           </div>
-          <button className={style.btn} onClick={handleSubmit(handleAddHabit)}>Create habit</button>
+          <button className={style.btn} onClick={handleSubmit(handleAddHabit)}>
+            Create habit
+          </button>
         </main>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default AddNew;
+export default AddNew
