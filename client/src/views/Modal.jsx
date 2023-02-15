@@ -1,7 +1,7 @@
-import { useState, useContext } from "react"
+import { useState } from "react"
 import { useForm } from "react-hook-form";
-import { categories as defaultCategories, categoryColorOptions, iconOptions } from "../../mongodb/habits.js"
-import { getIconsPath } from "../../utils/getIconsPath.js"
+import { categories as defaultCategories, categoryColorOptions, iconOptions } from "../mongodb/habits.js"
+import { getIconsPath } from "../utils/getIconsPath.js"
 import style from "./modal.module.scss"
 
 const Modal = ({ setIsModalOpen }) => {

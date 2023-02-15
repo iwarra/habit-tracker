@@ -4,13 +4,13 @@ import {
   Route,
   RouterProvider
 } from "react-router-dom"
-import AddNew from "./views/addNew/AddNew"
+import AddNew from "./views/AddNew"
 import Overview from "./compontents/Overview"
 import RootLayout from "./layouts/RootLayout"
-import NotFound from "./compontents/NotFound"
+import NotFound from "./views/NotFound"
 import { StatsProvider } from "./context/StatsContext"
 import { HabitProvider } from "./context/HabitContext"
-import SeeMore from "./views/addNew/SeeMore"
+import SeeMore from "./views/SeeMore"
 
 /* <Route path='profile' element={<Profile />} */
 

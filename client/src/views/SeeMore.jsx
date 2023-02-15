@@ -1,6 +1,6 @@
 import React from "react"
 import style from "./seeMore.module.scss"
-import { getAllItems } from '../../utils/localStorage/getAllItems.js'
+import { getAllItems } from '../utils/localStorage/getAllItems.js'
 
 const SeeMore = () => {
   const name = /* username ?? */ 'Ivona'
