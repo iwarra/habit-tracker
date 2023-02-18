@@ -6,7 +6,6 @@ import { useForm } from 'react-hook-form'
 import { useHabits } from '../hooks/useHabits'
 import StatsContext from '../context/StatsContext'
 import { repetition } from '../mongodb/habits'
-import { addItem } from '../utils/localStorage/addItem'
 import { serveDefault } from '../utils/localStorage/serveDefault'
 import { categoriesToShow } from '../utils/localStorage/showAllCategories'
 import style from './addNew.module.scss'
@@ -27,7 +26,7 @@ const AddNew = () => {
     monthlyTotal: '',
   })
 
-  // const { addNewHabit } = useHabits()
+  const { addNewHabit } = useHabits()
   const { setHabitsCount } = useContext(StatsContext)
 
   const navigate = useNavigate()
@@ -40,8 +39,7 @@ const AddNew = () => {
   }
 
   function handleAddHabit() {
-    //addNewHabit(newHabit) from useHabits hook
-    addItem(newHabit, 'habitList')
+    addNewHabit(newHabit)
     setHabitsCount((prev) => prev + 1)
     navigate('/')
   }
