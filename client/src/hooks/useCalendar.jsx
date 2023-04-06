@@ -19,3 +19,8 @@ export const useCalendar = () => {
   return { calendarTitle, setDates, dates }
 }
 
+export const handleDateToShow = (date) => {
+  // open a page for that week
+  // URL should be some form of the date --> the date needs to be sent into the new page
+  // Habits from that day should be displayed (with some editing options)
+}

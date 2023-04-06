@@ -3,10 +3,10 @@
   flex-direction: column;
   gap: 1rem;
   border-radius: 2rem 2rem;
-  padding: 2rem;
+  padding: 2rem 1.5rem;
   background-color: var(--clr-primary);
   color: white;
-  margin-bottom: 1rem;
+  margin-block: 1rem;
   position: relative;
   overflow: hidden;
 }
@@ -23,10 +23,10 @@
   color: white;
 }
 
-.leftArrow:hover, .rightArrow:hover {
+/* .leftArrow:hover, .rightArrow:hover {
   font-size: 3.3rem;
   transition: .3s;
-}
+} */
 
 .datesWrap {
   display: flex;

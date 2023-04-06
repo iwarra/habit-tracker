@@ -26,11 +26,7 @@ const Calendar = () => {
       <div className={`${style.pink} ${style.circle}`}></div>
       <h2 className={style.heading}>{calendarTitle()}</h2>
       <div className={style.datesWrap}>
-        <IoMdArrowDropleft
-          role="button"
-          className={style.leftArrow}
-          onClick={handlePrevWeek}
-        />
+        <IoMdArrowDropleft role="button" className={style.leftArrow} onClick={handlePrevWeek} />
         <ul className={style.dates}>
           {dates.map((week) => {
             const { date, dayName, id, today } = week
@@ -40,17 +36,13 @@ const Calendar = () => {
               <li key={id}>
                 <span>{dayName.slice(0, 1)}</span>
                 <div className={hightlight}>
-                  <span /* onClick={() => handleShowDay(date)} */>{date.getDate()}</span>
+                  <a href="/date" /* onClick={() => handleDateToShow(date)} */>{date.getDate()}</a>
                 </div>
               </li>
             )
           })}
         </ul>
-        <IoMdArrowDropright
-          role="button"
-          onClick={handleNextWeek}
-          className={style.rightArrow}
-        />
+        <IoMdArrowDropright role="button" onClick={handleNextWeek} className={style.rightArrow} />
       </div>
     </div>
   )

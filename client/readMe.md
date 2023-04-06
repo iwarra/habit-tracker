@@ -12,11 +12,12 @@ Main logic tasks:
    - expand the useHabits hook with additional logic
 
 Remaining in Calendar:
-* Click a date and get all habits for the day
+* Click a date and get all habits for the day 
+- Extract calendar styling to be reusable in other views ?
 
 * "See more"-page design and logic:
-   - should a user be able to edit and delete habits here
-   - should it display only the habits for that day
+   - should a user be able to edit and delete habits here ?
+   - should it display only the habits for that day or all the habits ?
 
 
 
