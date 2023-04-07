@@ -61,7 +61,7 @@ const AddNew = () => {
                 onChange: (e) => setNewHabit((prev) => ({ ...prev, name: e.target.value })),
                 type: 'text',
               })}
-              id="habitInput"
+              id="newHabit"
               value={newHabit.name}
             />
           </label>

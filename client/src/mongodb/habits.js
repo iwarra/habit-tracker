@@ -17,7 +17,7 @@ const repetition = [
     id: crypto.randomUUID(),
   },
   {
-    name: 'On workdays',
+    name: 'On work days',
     number: repetitionCalc().workingDays,
     id: crypto.randomUUID(),
   },

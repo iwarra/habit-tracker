@@ -1,3 +1,5 @@
+* See more page filter for habit frequency
+
 * Add habit page:
    - Footer icons size diff (svg issue?)
    - responsiveness like hover etc

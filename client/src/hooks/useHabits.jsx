@@ -28,5 +28,29 @@ export const useHabits = () => {
     if (item.checked === false) return confetti()
   }
 
-  return { habits, updateAll, addNewHabit }
+  function filterHabitsByFrequency(habits, filterOption) {
+    let filteredArr;
+    
+    switch (filterOption) {
+      case 'Daily':
+        filteredArr = habits.filter((item) => item.repetition === 'Daily') 
+        break
+      case 'Weekly':
+        filteredArr = habits.filter((item) => item.repetition === 'Weekly') 
+        break
+      case 'On weekends':
+        filteredArr = habits.filter((item) => item.repetition === 'On weekends') 
+        break
+      case 'On work days':
+        filteredArr = habits.filter((item) => item.repetition === 'On work days') 
+        break
+      case 'All': 
+        filteredArr = habits
+        break
+    }
+
+    return filteredArr
+  }
+
+  return { habits, updateAll, addNewHabit, filterHabitsByFrequency }
 }

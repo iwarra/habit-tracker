@@ -1,0 +1,24 @@
+.dateWrap {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  max-width: 940px;
+  width: 90%;
+  font-size: var(--font-size-text);
+  margin-top: var(--spacing);
+
+  h1 {
+    margin-bottom: 1rem;
+  }
+}
+
+.habitsWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  li {
+    min-width: 80%;
+  }
+}

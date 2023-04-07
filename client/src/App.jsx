@@ -9,9 +9,9 @@ import Overview from './compontents/Overview'
 import RootLayout from './layouts/RootLayout'
 import NotFound from './views/NotFound'
 import Date from './views/Date'
+import SeeMore from './views/SeeMore'
 import { StatsProvider } from './context/StatsContext'
 import { HabitProvider } from './context/HabitContext'
-import SeeMore from './views/SeeMore'
 
 /* <Route path='userProfile' element={<UserProfile />} */
 
