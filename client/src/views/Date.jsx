@@ -2,9 +2,11 @@ import Calendar from '../compontents/calendar/Calendar'
 import HabitCard from '../compontents/HabitCard'
 import { useHabits } from '../hooks/useHabits'
 import style from './date.module.scss'
+//import { useParams } from 'react-router-dom'
 
 const Date = () => {
   const { habits, updateAll } = useHabits()
+  //const params = useParams()
 
   //Habits need to be filtered by the chosen date instead of mapped
   return (

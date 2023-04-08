@@ -16,11 +16,12 @@ export const useCalendar = () => {
     return `${dateObject.nameOfDay}, ${dateObject.month} ${dateObject.getDate}`
   }
 
-  return { calendarTitle, setDates, dates }
+  const handleDateToShow = (dayName, date) => {
+    // open a page for that date
+    // URL should be some form of the date --> the date needs to be sent into the new page
+    // Habits from that day should be displayed (with some editing options)
+  }
+
+  return { calendarTitle, setDates, dates, handleDateToShow }
 }
 
-export const handleDateToShow = (date) => {
-  // open a page for that week
-  // URL should be some form of the date --> the date needs to be sent into the new page
-  // Habits from that day should be displayed (with some editing options)
-}

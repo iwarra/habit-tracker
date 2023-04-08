@@ -2,9 +2,10 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  max-width: 940px;
-  min-width: 80vw;
   margin-block: 2rem;
+  max-width: 940px;
+  width: 90%;
+  font-size: var(--font-size-text);
 
   h1 {
     margin-bottom: 1.5rem;

@@ -36,7 +36,7 @@ const Calendar = () => {
               <li key={id}>
                 <span>{dayName.slice(0, 1)}</span>
                 <div className={hightlight}>
-                  <a href="/date" /* onClick={() => handleDateToShow(date)} */>{date.getDate()}</a>
+                  <a href="/date">{date.getDate()}</a>
                 </div>
               </li>
             )

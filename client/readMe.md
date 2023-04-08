@@ -1,4 +1,10 @@
-* See more page filter for habit frequency
+Main logic tasks: 
+   - expand the useHabits hook with additional logic
+
+Remaining in Calendar:
+* Click a date and get all habits for the day 
+- Extract calendar styling to be reusable in other views ?
+
 
 * Add habit page:
    - Footer icons size diff (svg issue?)
@@ -10,16 +16,6 @@
    - Calendar dates wrap (set min-width?)
    - Habits sorting once they are checked
 
-Main logic tasks: 
-   - expand the useHabits hook with additional logic
-
-Remaining in Calendar:
-* Click a date and get all habits for the day 
-- Extract calendar styling to be reusable in other views ?
-
-* "See more"-page design and logic:
-   - should a user be able to edit and delete habits here ?
-   - should it display only the habits for that day or all the habits ?
 
 
 
