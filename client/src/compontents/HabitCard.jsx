@@ -22,4 +22,4 @@ const HabitCard = ({ item, updateAll }) => {
   )
 }
 
-export default HabitCard;
+export default HabitCard

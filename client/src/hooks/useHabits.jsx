@@ -29,22 +29,22 @@ export const useHabits = () => {
   }
 
   function filterHabitsByFrequency(habits, filterOption) {
-    let filteredArr;
-    
+    let filteredArr
+
     switch (filterOption) {
       case 'Daily':
-        filteredArr = habits.filter((item) => item.repetition === 'Daily') 
+        filteredArr = habits.filter((item) => item.repetition === 'Daily')
         break
       case 'Weekly':
-        filteredArr = habits.filter((item) => item.repetition === 'Weekly') 
+        filteredArr = habits.filter((item) => item.repetition === 'Weekly')
         break
       case 'On weekends':
-        filteredArr = habits.filter((item) => item.repetition === 'On weekends') 
+        filteredArr = habits.filter((item) => item.repetition === 'On weekends')
         break
       case 'On work days':
-        filteredArr = habits.filter((item) => item.repetition === 'On work days') 
+        filteredArr = habits.filter((item) => item.repetition === 'On work days')
         break
-      case 'All': 
+      case 'All':
         filteredArr = habits
         break
     }

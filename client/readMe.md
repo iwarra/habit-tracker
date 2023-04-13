@@ -1,3 +1,7 @@
+* Date view
+- Add param to make the URL dynamyc
+- filter the habits acording to the date
+
 Main logic tasks: 
    - expand the useHabits hook with additional logic
 

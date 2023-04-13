@@ -52,6 +52,10 @@
       line-height: .85;
     }
 
+    a:link {
+      text-decoration: none;
+    }
+
     .inactive {
       background-color: #ebe0e092;
       padding: .3rem .6rem 1rem .6rem;
