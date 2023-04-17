@@ -1,48 +1,22 @@
-import { useContext, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { IoMdAddCircle } from 'react-icons/io'
-import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
-import { useHabits } from '../hooks/useHabits'
-import StatsContext from '../context/StatsContext'
+import { useAddNew } from '../hooks/useAddNew'
 import { repetition } from '../mongodb/habits'
 import { serveDefault } from '../utils/localStorage/serveDefault'
 import { categoriesToShow } from '../utils/localStorage/showAllCategories'
+import { useContext } from 'react'
+import ModalContext from '../context/ModalContext'
 import style from './addNew.module.scss'
 import Modal from './Modal'
 
 serveDefault('Categories')
 
 const AddNew = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const [newHabit, setNewHabit] = useState({
-    id: crypto.randomUUID(),
-    name: '',
-    checked: false,
-    category: 'Uncategorized',
-    color: '#eee',
-    icon: 'checklist',
-    repetition: '',
-    monthlyTotal: '',
-  })
-
-  const { addNewHabit } = useHabits()
-  const { setHabitsCount } = useContext(StatsContext)
-
-  const navigate = useNavigate()
+  const { newHabit, setNewHabit, handleAddCategory, handleAddHabit } = useAddNew()
+  const { isModalOpen } = useContext(ModalContext)
   const { register, formState, handleSubmit } = useForm()
   const { errors } = formState
-
-  function handleAddCategory(event) {
-    if (event.target != 'button' && event.target.closest('#modalWrap')) return
-    setIsModalOpen((prev) => !prev)
-  }
-
-  function handleAddHabit() {
-    addNewHabit(newHabit)
-    setHabitsCount((prev) => prev + 1)
-    navigate('/')
-  }
 
   return (
     <div className={style.wrapper}>
@@ -116,8 +90,7 @@ const AddNew = () => {
               <div className={style.addCategory} onClick={handleAddCategory}>
                 <IoMdAddCircle role="button" className={style.addIcon} />
                 <span>Add category</span>
-                {isModalOpen &&
-                  createPortal(<Modal setIsModalOpen={setIsModalOpen} />, document.body)}
+                {isModalOpen && createPortal(<Modal />, document.body)}
               </div>
             </div>
           </div>

@@ -12,6 +12,8 @@ import Date from './views/Date'
 import SeeMore from './views/SeeMore'
 import { StatsProvider } from './context/StatsContext'
 import { HabitProvider } from './context/HabitContext'
+import { ModalProvider } from './context/ModalContext'
+import Modal from './views/Modal'
 
 /* <Route path='userProfile' element={<UserProfile />} */
 
@@ -31,7 +33,9 @@ function App() {
   return (
     <StatsProvider>
       <HabitProvider>
-        <RouterProvider router={router} />
+        <ModalProvider>
+          <RouterProvider router={router} />
+        </ModalProvider>
       </HabitProvider>
     </StatsProvider>
   )
