@@ -1,44 +1,65 @@
-import { useState } from "react"
-import { dateObject } from "../utils/timeUtils.js"
-import getWeek from "date-fns/getWeek"
+import { useState } from 'react'
+import { dateObject } from '../utils/timeUtils.js'
+import getWeek from 'date-fns/getWeek'
 import {
   startOfDay,
   endOfDay,
+  eachDayOfInterval,
+  eachWeekendOfInterval,
+  eachWeekOfInterval,
   isSameDay,
-  isWeekend,
-  isMonday,
-  isTuesday,
-  isWednesday,
-  isThursday,
-  isFriday,
 } from 'date-fns'
-import { getWeekDates } from "../utils/timeUtils.js"
+import toDate from 'date-fns/toDate'
+import isWeekend from 'date-fns/isWeekend'
+import { getWeekDates } from '../utils/timeUtils.js'
 
-const today = getWeekDates().filter((day) => day.today === true).at(0).date
+const today = getWeekDates()
+  .filter((day) => day.today === true)
+  .at(0).date
 
 export const useCalendar = () => {
   const [dates, setDates] = useState(getWeekDates())
 
   const calendarTitle = () => {
-    if (!dates.some(el => el.today === true)) {
+    if (!dates.some((el) => el.today === true)) {
       return `Week number: ${getWeek(dates.at(0).date)}`
     }
     dateObject.setDate = today
     return `${dateObject.nameOfDay}, ${dateObject.month} ${dateObject.getDate}`
   }
 
-  const handleDateToShow = (dayName, date) => {
-    // open a page for that date
-    // URL should be some form of the date --> the date needs to be sent into the new page
-    // Habits from that day should be displayed (with some editing options)
+  const filterHabitsByDate = (habits, date) => {
+    const filteredHabits = habits.filter((habit) => {
+      const habitDates = getHabitDates(habit, date)
+      return habitDates.some((habitDate) => isSameDay(new Date(habitDate), new Date(date)))
+    })
+    return filteredHabits
   }
 
-  const getHabitsForDate = (date, habits) => {
-    //send date from calender with click event?
-    // get dates for habits based on the repetition property
-    //Filter habits after the selected date
+  const getHabitDates = (habit, date) => {
+    const { repetition } = habit
+    const start = startOfDay(toDate(new Date(date)))
+    const end = endOfDay(toDate(new Date(date)))
+    let dates = []
+
+    switch (repetition) {
+      case 'daily':
+        dates = eachDayOfInterval({ start, end })
+        break
+      case 'weekends':
+        dates = eachWeekendOfInterval({ start, end })
+        break
+      case 'weekdays':
+        dates = eachDayOfInterval({ start, end }).map(date => !isWeekend(date))
+        break
+      case 'weekly':
+        dates = eachWeekOfInterval({ start, end })
+        break
+      default:
+        break
+    }
+    return dates
   }
 
-  return { calendarTitle, setDates, dates, handleDateToShow }
+  return { calendarTitle, setDates, dates, filterHabitsByDate, getHabitDates }
 }
-

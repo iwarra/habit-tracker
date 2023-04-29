@@ -21,7 +21,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<RootLayout />}>
       <Route exact path="/" element={<Overview />} />
-      <Route path="/date" element={<Date />} />
+      <Route path="/date/:date" element={<Date />} /> 
       <Route path="add" element={<AddNew />} />
       <Route path="/more" element={<SeeMore />} />
       <Route path="*" element={<NotFound />} />

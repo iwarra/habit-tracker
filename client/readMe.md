@@ -1,8 +1,12 @@
 Remaining in Calendar:
 - Click a date and get all habits for the day 
 - Extract calendar styling to be reusable in other views ?
-   - Date view
-   - Add param to make the URL dynamyc
+
+Prio:
+***Footer for date view icon size bug
+***URL for date page should be shortened
+***Refactor date logic 
+
 
 Add habit page:
    - responsiveness like hover etc

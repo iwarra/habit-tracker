@@ -3,6 +3,7 @@ import { useCalendar } from '../../hooks/useCalendar.jsx'
 import { useState, useEffect } from 'react'
 import { IoMdArrowDropright, IoMdArrowDropleft } from 'react-icons/io'
 import { getWeekDates } from '../../utils/timeUtils.js'
+import { Link } from 'react-router-dom'
 
 const Calendar = () => {
   const { calendarTitle, dates, setDates } = useCalendar()
@@ -36,7 +37,8 @@ const Calendar = () => {
               <li key={id}>
                 <span>{dayName.slice(0, 1)}</span>
                 <div className={hightlight}>
-                  <a href="/date">{date.getDate()}</a>
+                  <Link to={`/date/${date}`}>{date.getDate()}</Link>
+                  {/* <a href="/date">{date.getDate()}</a> */}
                 </div>
               </li>
             )
