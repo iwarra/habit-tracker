@@ -1,19 +1,20 @@
 Remaining in Calendar:
-* Click a date and get all habits for the day 
+- Click a date and get all habits for the day 
 - Extract calendar styling to be reusable in other views ?
-   * Date view
+   - Date view
    - Add param to make the URL dynamyc
-   - filter the habits acording to the date
 
-* Add habit page:
+Add habit page:
    - responsiveness like hover etc
    - addNew cta hover style solution
 
-* Overview: 
+Overview: 
    - Calendar dates wrap (set min-width?)
    - Habits sorting once they are checked
 
-
+SASS:
+   - add placeholder container that can be extended in all components to have universal styling
+   - variables SASS file to separate all of the variables
 
 
 
