@@ -3,10 +3,9 @@ Remaining in Calendar:
 - Extract calendar styling to be reusable in other views ?
 
 Prio:
-***Footer for date view icon size bug
-***URL for date page should be shortened
+***URL for date page should be shortened ?
 ***Refactor date logic 
-
+*** style for calendar links for visited, hover, etc.
 
 Add habit page:
    - responsiveness like hover etc
