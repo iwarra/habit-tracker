@@ -18,7 +18,7 @@
   }
 }
 
-.centralIconAdd {
+.centralIconAdd, .centralIconHome {
   font-size: 54px;
 }
 
@@ -27,7 +27,7 @@
   margin-inline: 5px;
 }
 
-.centralIconAdd:hover, .centralIconBack:hover,
+.centralIconAdd:hover, .centralIconBack:hover, .centralIconHome:hover,
 .icon:hover {
   color: var(--clr-accent);
 }

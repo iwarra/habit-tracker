@@ -23,7 +23,7 @@ export const FooterProvider =({ children })=> {
     else return {
       link: "/",
       icon: (
-        <IoMdHome className={style.centralIcon} role="button" />
+        <IoMdHome className={style.centralIconHome} role="button" />
       )
     }
   }
