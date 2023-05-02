@@ -28,38 +28,74 @@ export const useCalendar = () => {
     return `${dateObject.nameOfDay}, ${dateObject.month} ${dateObject.getDate}`
   }
 
+  // const filterHabitsByDate = (habits, date) => {
+  //   const filteredHabits = habits.filter((habit) => {
+  //     const habitDates = getHabitDates(habit, date)
+  //     return habitDates.some((habitDate) => isSameDay(new Date(habitDate), new Date(date)))
+  //   })
+  //   return filteredHabits
+  // }
+  
   const filterHabitsByDate = (habits, date) => {
-    const filteredHabits = habits.filter((habit) => {
-      const habitDates = getHabitDates(habit, date)
-      return habitDates.some((habitDate) => isSameDay(new Date(habitDate), new Date(date)))
+    let filteredHabits = habits.filter(habit => {
+      console.log('lala')
+      habitRepetitionCases(habit, date)
     })
+    console.log(filteredHabits)
     return filteredHabits
   }
 
-  const getHabitDates = (habit, date) => {
-    const { repetition } = habit
-    const start = startOfDay(toDate(new Date(date)))
-    const end = endOfDay(toDate(new Date(date)))
-    let dates = []
 
+  const habitRepetitionCases = (habit, date) => {
+    const { repetition } = habit
+    let isPlanned
+   
     switch (repetition) {
       case 'daily':
-        dates = eachDayOfInterval({ start, end })
+        isPlanned = true
         break
       case 'weekends':
-        dates = eachWeekendOfInterval({ start, end })
+        isPlanned = isWeekend(date)
         break
       case 'weekdays':
-        dates = eachDayOfInterval({ start, end }).map(date => !isWeekend(date))
+        isPlanned = !isWeekend(date)
         break
       case 'weekly':
-        dates = eachWeekOfInterval({ start, end })
+        isPlanned = true
         break
       default:
         break
     }
-    return dates
+    return isPlanned
   }
 
-  return { calendarTitle, setDates, dates, filterHabitsByDate, getHabitDates }
+
+  //Refactor to show habits for a specified week number
+  // const getHabitDates = (habit, date) => {
+  //   const { repetition } = habit
+  //   const start = startOfDay(toDate(new Date(date)))
+  //   const end = endOfDay(toDate(new Date(date)))
+  //   let dates = []
+  //   const interval = {start: start, end: end}
+
+  //   switch (repetition) {
+  //     case 'daily':
+  //       dates = eachDayOfInterval(interval)
+  //       break
+  //     case 'weekends':
+  //       dates = eachWeekendOfInterval(interval)
+  //       break
+  //     case 'weekdays':
+  //       dates = eachDayOfInterval(interval).map((date) => !isWeekend(date))
+  //       break
+  //     case 'weekly':
+  //       dates = eachWeekOfInterval(interval)
+  //       break
+  //     default:
+  //       break
+  //   }
+  //   return dates
+  // }
+
+  return { calendarTitle, setDates, dates, filterHabitsByDate }
 }
