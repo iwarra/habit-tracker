@@ -3,9 +3,11 @@ Remaining in Calendar:
 - Extract calendar styling to be reusable in other views ?
 
 Prio:
-***URL for date page should be shortened ?
-***Refactor date logic 
+*** When clicking on a day new page loads and the calendar reloads to current week!
 *** style for calendar links for visited, hover, etc.
+*** Click area in calendar should be bigger (to open date page)?
+*** URL for date page should be shortened ?
+*** Refactor date logic 
 
 Add habit page:
    - responsiveness like hover etc
