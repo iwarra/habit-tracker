@@ -1,13 +1,13 @@
 Remaining in Calendar:
-- Click a date and get all habits for the day 
 - Extract calendar styling to be reusable in other views ?
 
 Prio:
 *** When clicking on a day new page loads and the calendar reloads to current week!
-*** style for calendar links for visited, hover, etc.
+*** If we click on a different day switch focus on the element instead of today?
+*** Habit card in date: check not showing
 *** Click area in calendar should be bigger (to open date page)?
 *** URL for date page should be shortened ?
-*** Refactor date logic 
+
 
 Add habit page:
    - responsiveness like hover etc

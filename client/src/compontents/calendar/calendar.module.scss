@@ -15,18 +15,14 @@
   z-index: 1;
 }
 
-.leftArrow, .rightArrow {
+.leftArrow,
+.rightArrow {
   cursor: pointer;
   font-size: 3rem;
-  transition: .3s;
+  transition: 0.3s;
   z-index: 1;
   color: white;
 }
-
-/* .leftArrow:hover, .rightArrow:hover {
-  font-size: 3.3rem;
-  transition: .3s;
-} */
 
 .datesWrap {
   display: flex;
@@ -38,7 +34,7 @@
   flex-wrap: wrap;
   width: 100%;
   justify-content: space-evenly;
-  gap: .5em;
+  gap: 0.5em;
   list-style: none;
   z-index: 1;
 
@@ -48,27 +44,36 @@
     align-items: center;
     cursor: pointer;
 
-    span{
-      line-height: .85;
+    span {
+      line-height: 0.85;
     }
 
     a:link {
       text-decoration: none;
     }
 
+    a {
+      color: white;
+    }
+
     .inactive {
       background-color: #ebe0e092;
-      padding: .3rem .6rem 1rem .6rem;
-      border-radius: .6rem;
-      margin-top: .3em;
+      padding: 0.3rem 0.6rem 1rem 0.6rem;
+      border-radius: 0.6rem;
+      margin-top: 0.3em;
     }
 
     .active {
       background-color: white;
+      opacity: 90%;
       color: black;
-      padding: .3rem .7rem 1rem .7rem;
-      border-radius: .6rem;
-      margin-top: .3em;
+      padding: 0.3rem 0.7rem 1rem 0.7rem;
+      border-radius: 0.6rem;
+      margin-top: 0.3em;
+
+      a {
+        color: black;
+      }
     }
   }
 }
@@ -86,7 +91,7 @@
   top: 0;
   left: -80px;
 }
- 
+
 .red {
   width: 250px;
   height: 250px;

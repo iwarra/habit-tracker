@@ -38,7 +38,6 @@ const Calendar = () => {
                 <span>{dayName.slice(0, 1)}</span>
                 <div className={hightlight}>
                   <Link to={`/date/${date}`}>{date.getDate()}</Link>
-                  {/* <a href="/date">{date.getDate()}</a> */}
                 </div>
               </li>
             )

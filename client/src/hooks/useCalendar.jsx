@@ -1,17 +1,10 @@
 import { useState } from 'react'
 import { dateObject } from '../utils/timeUtils.js'
 import getWeek from 'date-fns/getWeek'
-import {
-  startOfDay,
-  endOfDay,
-  eachDayOfInterval,
-  eachWeekendOfInterval,
-  eachWeekOfInterval,
-  isSameDay,
-} from 'date-fns'
-import toDate from 'date-fns/toDate'
 import isWeekend from 'date-fns/isWeekend'
 import { getWeekDates } from '../utils/timeUtils.js'
+import { useParams } from 'react-router-dom'
+import { useHabits } from './useHabits.jsx'
 
 const today = getWeekDates()
   .filter((day) => day.today === true)
@@ -19,6 +12,8 @@ const today = getWeekDates()
 
 export const useCalendar = () => {
   const [dates, setDates] = useState(getWeekDates())
+  const { date } = useParams()
+  const { habits } = useHabits()
 
   const calendarTitle = () => {
     if (!dates.some((el) => el.today === true)) {
@@ -28,47 +23,34 @@ export const useCalendar = () => {
     return `${dateObject.nameOfDay}, ${dateObject.month} ${dateObject.getDate}`
   }
 
-  // const filterHabitsByDate = (habits, date) => {
-  //   const filteredHabits = habits.filter((habit) => {
-  //     const habitDates = getHabitDates(habit, date)
-  //     return habitDates.some((habitDate) => isSameDay(new Date(habitDate), new Date(date)))
-  //   })
-  //   return filteredHabits
-  // }
-  
-  const filterHabitsByDate = (habits, date) => {
-    let filteredHabits = habits.filter(habit => {
-      console.log('lala')
-      habitRepetitionCases(habit, date)
-    })
-    console.log(filteredHabits)
-    return filteredHabits
-  }
-
-
   const habitRepetitionCases = (habit, date) => {
     const { repetition } = habit
     let isPlanned
-   
+
     switch (repetition) {
-      case 'daily':
-        isPlanned = true
-        break
-      case 'weekends':
-        isPlanned = isWeekend(date)
-        break
-      case 'weekdays':
-        isPlanned = !isWeekend(date)
-        break
-      case 'weekly':
-        isPlanned = true
-        break
-      default:
-        break
+      case 'Daily':
+        isPlanned = true;
+        break;
+      case 'On weekends':
+        isPlanned = isWeekend(date);
+        break;
+      case 'On work days':
+        isPlanned = !isWeekend(date);
+        break;
+      case 'Weekly':
+        isPlanned = true;
+        break;
     }
     return isPlanned
   }
 
+  const filterHabitsByDate = (habits, date) => {
+    return habits.filter((habit) => habitRepetitionCases(habit, date))
+  }
+
+  const [filteredHabits, setFilteredHabits] = useState(filterHabitsByDate(habits, date))
+  
+  console.log(filteredHabits)
 
   //Refactor to show habits for a specified week number
   // const getHabitDates = (habit, date) => {
@@ -97,5 +79,5 @@ export const useCalendar = () => {
   //   return dates
   // }
 
-  return { calendarTitle, setDates, dates, filterHabitsByDate }
+  return { calendarTitle, setDates, dates, filteredHabits }
 }

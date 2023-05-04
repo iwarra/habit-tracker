@@ -6,11 +6,10 @@ import style from './date.module.scss'
 import { useParams } from 'react-router-dom'
 
 const Date = () => {
-  const { habits, updateAll } = useHabits()
-  const { filterHabitsByDate } = useCalendar()
+  const { updateAll } = useHabits()
+  const { filteredHabits } = useCalendar()
   const { date } = useParams()
   const dateToDisplay = date.slice(0, 16)
-  const filtered = filterHabitsByDate(habits, date)
 
   return (
     <div className={style.dateWrap}>
@@ -18,7 +17,7 @@ const Date = () => {
       <div className={style.miniWrap}>
         <h1>Habits for: {dateToDisplay}</h1>
         <ul className={style.habitsWrap}>
-          {filtered.map((item) => (
+          {filteredHabits.map((item) => (
             <HabitCard key={item.id} updateAll={updateAll} item={item} />
           ))}
         </ul>
