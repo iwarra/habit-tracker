@@ -29,17 +29,17 @@ export const useCalendar = () => {
 
     switch (repetition) {
       case 'Daily':
-        isPlanned = true;
-        break;
+        isPlanned = true
+        break
       case 'On weekends':
-        isPlanned = isWeekend(date);
-        break;
+        isPlanned = isWeekend(date)
+        break
       case 'On work days':
-        isPlanned = !isWeekend(date);
-        break;
+        isPlanned = !isWeekend(date)
+        break
       case 'Weekly':
-        isPlanned = true;
-        break;
+        isPlanned = true
+        break
     }
     return isPlanned
   }
@@ -49,7 +49,7 @@ export const useCalendar = () => {
   }
 
   const [filteredHabits, setFilteredHabits] = useState(filterHabitsByDate(habits, date))
-  
+
   console.log(filteredHabits)
 
   //Refactor to show habits for a specified week number
