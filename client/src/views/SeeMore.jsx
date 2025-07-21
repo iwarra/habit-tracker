@@ -64,13 +64,19 @@ const SeeMore = () => {
       </div>
       <ul className={style.list}>
         {filteredHabits.length === 0 ? (
-            <h2>No habits to show</h2>
+          <h2>No habits to show</h2>
         ) : (
           filteredHabits.map((item) => (
             <li key={item.id} style={{ backgroundColor: item.color }} className={style.habit}>
               <h2>{item.name}</h2>
-              <p>Category: {item.category}</p>
-              <p>Repetition: {item.repetition}</p>
+              <div>
+                <span className="bold">Category:</span>
+                <span>{item.category}</span>
+              </div>
+              <div>
+                <span className="bold">Repetition:</span>
+                <span>{item.repetition}</span>
+              </div>
             </li>
           ))
         )}

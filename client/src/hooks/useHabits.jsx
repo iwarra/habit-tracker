@@ -52,5 +52,10 @@ export const useHabits = () => {
     return filteredArr
   }
 
-  return { habits, updateAll, addNewHabit, filterHabitsByFrequency }
+  return {
+    habits: [...habits].sort((a, b) => a.checked - b.checked),
+    updateAll,
+    addNewHabit,
+    filterHabitsByFrequency,
+  }
 }

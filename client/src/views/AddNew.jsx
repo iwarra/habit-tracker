@@ -5,7 +5,7 @@ import { useAddNew } from '../hooks/useAddNew'
 import { repetition } from '../mongodb/habits'
 import { serveDefault } from '../utils/localStorage/serveDefault'
 import { categoriesToShow } from '../utils/localStorage/showAllCategories'
-import { useContext } from 'react'
+import { useContext, useRef, useState } from 'react'
 import ModalContext from '../context/ModalContext'
 import style from './addNew.module.scss'
 import Modal from './Modal'
@@ -17,6 +17,8 @@ const AddNew = () => {
   const { isModalOpen } = useContext(ModalContext)
   const { register, formState, handleSubmit } = useForm()
   const { errors } = formState
+  const [isActive, setIsActive] = useState(false)
+  const result = isActive ? 'active' : ''
 
   return (
     <div className={style.wrapper}>
@@ -46,9 +48,8 @@ const AddNew = () => {
             <h2>Frequency</h2>
             <ul className={style.freqUl}>
               {repetition.map((item) => (
-                <li
+                <button
                   key={item.id}
-                  className={style.freqLi}
                   onClick={() =>
                     setNewHabit((prev) => ({
                       ...prev,
@@ -59,7 +60,7 @@ const AddNew = () => {
                 >
                   {' '}
                   {item.name}{' '}
-                </li>
+                </button>
               ))}
             </ul>
           </div>
@@ -69,29 +70,30 @@ const AddNew = () => {
               <ul className={style.categories}>
                 {categoriesToShow().map((item) => {
                   return (
-                    <li
+                    <button
+                      className={result}
                       style={{ backgroundColor: item.color, cursor: 'pointer' }}
                       key={item.id}
-                      onClick={() =>
+                      onClick={() => {
                         setNewHabit((prev) => ({
                           ...prev,
                           category: item.name,
                           color: item.color,
                           icon: item.icon,
                         }))
-                      }
+                      }}
                     >
                       {' '}
                       {item.name}{' '}
-                    </li>
+                    </button>
                   )
                 })}
               </ul>
-              <div className={style.addCategory} onClick={handleAddCategory}>
+              <button className={style.addCategory} onClick={handleAddCategory}>
                 <IoMdAddCircle role="button" className={style.addIcon} />
                 <span>Add category</span>
                 {isModalOpen && createPortal(<Modal />, document.body)}
-              </div>
+              </button>
             </div>
           </div>
           <button className={style.btn} onClick={handleSubmit(handleAddHabit)}>
