@@ -1,0 +1,44 @@
+.main {
+  color: var(--clr-font-main);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  max-width: 1280px;
+  width: 90%;
+  font-size: var(--font-size-text);
+  margin-top: var(--spacing);
+
+  h1 {
+    margin-bottom: 1rem;
+  }
+}
+
+.habits {
+  margin-bottom: 1rem;
+}
+
+.heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+
+  h2 {
+    margin-bottom: 1rem;
+  }
+
+  .seeMoreLink {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--clr-accent);
+    font-size: smaller;
+    cursor: pointer;
+    transition: 1s;
+  }
+
+  .seeMoreLink:hover {
+    font-weight: 600;
+    transition-timing-function: ease-in-out;
+  }
+}
+

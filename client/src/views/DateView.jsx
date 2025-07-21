@@ -1,0 +1,30 @@
+import Calendar from '../components/calendar/Calendar'
+import HabitCard from '../components/HabitCard'
+import { useHabits } from '../hooks/useHabits'
+import { useCalendar } from '../hooks/useCalendar'
+import style from './date.module.scss'
+import { useParams } from 'react-router-dom'
+import { format } from 'date-fns'
+
+const DateView = () => {
+  const { updateAll } = useHabits()
+  const { filteredHabits } = useCalendar()
+  const { date } = useParams()
+  const dateToDisplay = format(new Date(date), 'eeee, MMMM do')
+
+  return (
+    <div className={style.dateWrap}>
+      <Calendar />
+      <div className={style.miniWrap}>
+        <h1>Habits for: {dateToDisplay}</h1>
+        <ul className={style.habitsWrap}>
+          {filteredHabits.map((item) => (
+            <HabitCard key={item.id} updateAll={updateAll} item={item} />
+          ))}
+        </ul>
+      </div>
+    </div>
+  )
+}
+
+export default DateView

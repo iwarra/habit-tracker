@@ -1,0 +1,25 @@
+.habits {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  overflow-x: auto;
+}
+
+/* Works on Firefox */
+.habits {
+  scrollbar-width: thin;
+  scrollbar-color: darkgray lightgray;
+}
+
+/* Works on Chrome, Edge, and Safari */
+.habits::-webkit-scrollbar {
+  height: 0.5rem;
+}
+
+.habits::-webkit-scrollbar-track {
+  background: lightgray;
+}
+
+.habits::-webkit-scrollbar-thumb {
+  background-color: darkgray;
+}

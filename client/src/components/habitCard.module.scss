@@ -1,0 +1,51 @@
+ .container {
+  min-width: 220px;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 1rem;
+  padding: .8rem;
+  margin-bottom: 0.6em;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  .icon {
+    //font-size: 2.8rem;
+    width: 2.8rem;
+  }
+
+  .summary {
+    display: flex;
+    flex-direction: column;
+
+    .freq {
+      font-size: medium;
+      color: var(--clr-font-light);
+      font-style: normal;
+    }
+  }
+
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 1rem
+}
+
+.count {
+  font-size: large;
+  font-weight: 600;
+}
+
+input {
+  height: 1.5rem;
+  width: 1.5rem;
+}
